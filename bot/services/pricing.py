@@ -1,8 +1,12 @@
+# Общая скидка поверх наценки — снижает финальные цены на витрине на 20%.
+SALE_DISCOUNT = 0.8
+
+
 def apply_markup(supplier_price: int) -> int:
     """Наценка тем выше, чем дешевле товар у поставщика.
 
-    < 2000: +80%, 2000-5000: +50%, > 5000: +20%. Результат округляется
-    до 10 рублей, чтобы цены выглядели аккуратно.
+    < 2000: +80%, 2000-5000: +50%, > 5000: +20%, затем скидка SALE_DISCOUNT.
+    Результат округляется до 10 рублей, чтобы цены выглядели аккуратно.
     """
     if supplier_price < 2000:
         markup = 1.8
@@ -11,5 +15,5 @@ def apply_markup(supplier_price: int) -> int:
     else:
         markup = 1.2
 
-    price = supplier_price * markup
+    price = supplier_price * markup * SALE_DISCOUNT
     return round(price / 10) * 10

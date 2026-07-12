@@ -14,7 +14,7 @@
         "type": "decant",
         "label": "Отливант 5 мл",
         "volume_ml": 5,
-        "price": 2450,
+        "price": 1960,
         "in_stock": true
       },
       {
@@ -22,7 +22,7 @@
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
-        "price": 4160,
+        "price": 3320,
         "in_stock": true
       },
       {
@@ -30,7 +30,7 @@
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
-        "price": 16570,
+        "price": 13260,
         "in_stock": true
       },
       {
@@ -38,7 +38,7 @@
         "type": "tester",
         "label": "Духи 100 мл (тестер)",
         "volume_ml": 100,
-        "price": 17760,
+        "price": 14210,
         "in_stock": true
       }
     ]
@@ -58,7 +58,7 @@
         "type": "decant",
         "label": "Отливант 5 мл",
         "volume_ml": 5,
-        "price": 2290,
+        "price": 1830,
         "in_stock": true
       },
       {
@@ -66,7 +66,7 @@
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
-        "price": 3500,
+        "price": 2800,
         "in_stock": true
       },
       {
@@ -74,7 +74,7 @@
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
-        "price": 16580,
+        "price": 13270,
         "in_stock": true
       },
       {
@@ -82,7 +82,7 @@
         "type": "tester",
         "label": "Духи 100 мл (тестер)",
         "volume_ml": 100,
-        "price": 16580,
+        "price": 13270,
         "in_stock": true
       }
     ]
@@ -102,7 +102,7 @@
         "type": "decant",
         "label": "Отливант 5 мл",
         "volume_ml": 5,
-        "price": 2810,
+        "price": 2250,
         "in_stock": true
       },
       {
@@ -110,7 +110,7 @@
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
-        "price": 3390,
+        "price": 2710,
         "in_stock": true
       },
       {
@@ -118,7 +118,7 @@
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
-        "price": 13900,
+        "price": 11120,
         "in_stock": true
       },
       {
@@ -126,7 +126,7 @@
         "type": "tester",
         "label": "Духи 100 мл (тестер)",
         "volume_ml": 100,
-        "price": 15230,
+        "price": 12180,
         "in_stock": true
       }
     ]
@@ -146,7 +146,7 @@
         "type": "decant",
         "label": "Отливант 5 мл",
         "volume_ml": 5,
-        "price": 2290,
+        "price": 1830,
         "in_stock": true
       },
       {
@@ -154,7 +154,7 @@
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
-        "price": 3390,
+        "price": 2710,
         "in_stock": true
       },
       {
@@ -162,7 +162,7 @@
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
-        "price": 15400,
+        "price": 12320,
         "in_stock": true
       },
       {
@@ -170,7 +170,7 @@
         "type": "tester",
         "label": "Духи 100 мл (тестер)",
         "volume_ml": 100,
-        "price": 16000,
+        "price": 12800,
         "in_stock": true
       }
     ]
@@ -190,7 +190,7 @@
         "type": "decant",
         "label": "Отливант 5 мл",
         "volume_ml": 5,
-        "price": 2430,
+        "price": 1940,
         "in_stock": true
       },
       {
@@ -198,7 +198,7 @@
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
-        "price": 3390,
+        "price": 2710,
         "in_stock": true
       },
       {
@@ -206,7 +206,7 @@
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
-        "price": 12250,
+        "price": 9800,
         "in_stock": true
       },
       {
@@ -214,7 +214,7 @@
         "type": "tester",
         "label": "Духи 100 мл (тестер)",
         "volume_ml": 100,
-        "price": 12850,
+        "price": 10280,
         "in_stock": true
       }
     ]
@@ -234,7 +234,7 @@
         "type": "decant",
         "label": "Отливант 5 мл",
         "volume_ml": 5,
-        "price": 2290,
+        "price": 1830,
         "in_stock": true
       },
       {
@@ -242,7 +242,7 @@
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
-        "price": 3600,
+        "price": 2880,
         "in_stock": true
       },
       {
@@ -250,7 +250,7 @@
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
-        "price": 16000,
+        "price": 12800,
         "in_stock": true
       },
       {
@@ -258,7 +258,7 @@
         "type": "tester",
         "label": "Духи 100 мл (тестер)",
         "volume_ml": 100,
-        "price": 16000,
+        "price": 12800,
         "in_stock": true
       }
     ]
@@ -278,7 +278,7 @@
         "type": "decant",
         "label": "Отливант 5 мл",
         "volume_ml": 5,
-        "price": 2810,
+        "price": 2250,
         "in_stock": true
       },
       {
@@ -286,7 +286,7 @@
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
-        "price": 3810,
+        "price": 3050,
         "in_stock": true
       },
       {
@@ -294,7 +294,7 @@
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
-        "price": 15700,
+        "price": 12560,
         "in_stock": true
       },
       {
@@ -302,7 +302,7 @@
         "type": "tester",
         "label": "Духи 100 мл (тестер)",
         "volume_ml": 100,
-        "price": 17340,
+        "price": 13870,
         "in_stock": true
       }
     ]
@@ -322,7 +322,7 @@
         "type": "decant",
         "label": "Отливант 2 мл",
         "volume_ml": 2,
-        "price": 1280,
+        "price": 1020,
         "in_stock": true
       },
       {
@@ -330,7 +330,7 @@
         "type": "decant",
         "label": "Отливант 5 мл",
         "volume_ml": 5,
-        "price": 3060,
+        "price": 2450,
         "in_stock": true
       },
       {
@@ -338,7 +338,7 @@
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
-        "price": 4880,
+        "price": 3900,
         "in_stock": true
       },
       {
@@ -346,7 +346,7 @@
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
-        "price": 19960,
+        "price": 15960,
         "in_stock": true
       },
       {
@@ -354,7 +354,7 @@
         "type": "tester",
         "label": "Духи 100 мл (тестер)",
         "volume_ml": 100,
-        "price": 23160,
+        "price": 18530,
         "in_stock": true
       }
     ]

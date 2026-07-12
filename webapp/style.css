@@ -1,18 +1,18 @@
 :root {
-  /* монохромная премиальная палитра: чёрный / графит / серебро / стекло — без золота.
+  /* премиальная палитра: синий графит + серебро — без золота.
      Бренд намеренно не подстраивается под тему Telegram — это фирменный вид бутика. */
-  --bg: #0a0a0b;
-  --bg-elevated: #17181a;
-  --graphite: #202124;
-  --line: rgba(255, 255, 255, 0.09);
-  --line-strong: rgba(255, 255, 255, 0.18);
-  --glass: rgba(255, 255, 255, 0.045);
-  --glass-strong: rgba(255, 255, 255, 0.08);
-  --text: #f3f3f4;
-  --muted: #9a9ba2;
-  --silver: #d6d7db;
-  --accent-grad: linear-gradient(135deg, #ffffff, #c3c5cb);
-  --on-accent: #0a0a0b;
+  --bg: #0a0e19;
+  --bg-elevated: #121b2c;
+  --graphite: #1b2537;
+  --line: rgba(160, 180, 215, 0.12);
+  --line-strong: rgba(160, 180, 215, 0.22);
+  --glass: rgba(140, 165, 210, 0.055);
+  --glass-strong: rgba(140, 165, 210, 0.1);
+  --text: #eef1f7;
+  --muted: #8d97ac;
+  --silver: #c9d1e3;
+  --accent-grad: linear-gradient(135deg, #e9edf5, #a7b0c4);
+  --on-accent: #0a0e19;
 }
 
 * {
@@ -64,7 +64,7 @@ h3 {
   height: 280px;
   top: -60px;
   left: -60px;
-  background: radial-gradient(circle, #ffffff, transparent 70%);
+  background: radial-gradient(circle, #dce6f7, transparent 70%);
   animation-duration: 24s;
 }
 
@@ -73,7 +73,7 @@ h3 {
   height: 340px;
   top: 26%;
   right: -110px;
-  background: radial-gradient(circle, #8a8d94, transparent 70%);
+  background: radial-gradient(circle, #6f82a8, transparent 70%);
   animation-duration: 30s;
   animation-delay: -8s;
 }
@@ -83,7 +83,7 @@ h3 {
   height: 300px;
   bottom: -90px;
   left: 12%;
-  background: radial-gradient(circle, #4b4d52, transparent 70%);
+  background: radial-gradient(circle, #35405c, transparent 70%);
   animation-duration: 34s;
   animation-delay: -15s;
 }
