@@ -148,6 +148,7 @@ async def handle_checkout(request: web.Request) -> web.Response:
     name = str(contact.get("name", "")).strip()
     phone = str(contact.get("phone", "")).strip()
     address = str(contact.get("address", "")).strip()
+    delivery_method = str(contact.get("delivery_method", "")).strip()
     payment_method = str(contact.get("payment_method", "")).strip()
 
     if not name or not phone or not payment_method:
@@ -159,7 +160,13 @@ async def handle_checkout(request: web.Request) -> web.Response:
         order_items,
         total,
         config.currency,
-        {"name": name, "phone": phone, "address": address, "payment_method": payment_method},
+        {
+            "name": name,
+            "phone": phone,
+            "address": address,
+            "delivery_method": delivery_method,
+            "payment_method": payment_method,
+        },
         promo_code=promo_code.upper() if discount_amount else None,
         discount_amount=discount_amount,
     )
@@ -168,6 +175,13 @@ async def handle_checkout(request: web.Request) -> web.Response:
     user_label = f"@{username}" if username else str(user_id)
     items_text = "\n".join(f"• {i['name']} × {i['qty']}" for i in order_items)
     payment_label = "Перевод на карту" if payment_method == "transfer" else "Наличными при получении"
+    delivery_labels = {
+        "russian_post": "Почта России (до отделения)",
+        "cdek": "СДЭК до ПВЗ",
+        "yandex": "Яндекс Доставка",
+        "sochi": "Доставка по Сочи",
+    }
+    delivery_label = delivery_labels.get(delivery_method, "Не указан")
     discount_line = (
         f"Промокод: {promo_code.upper()} (-{discount_percent}%, -{discount_amount} {config.currency})\n"
         if discount_amount
@@ -181,6 +195,7 @@ async def handle_checkout(request: web.Request) -> web.Response:
         "Имя: {name}\n"
         "Телефон: {phone}\n"
         "Адрес: {address}\n"
+        "Доставка: {delivery_label}\n"
         "Оплата: {payment_label}\n"
         "{discount_line}\n"
         "{items}\n\n"
@@ -191,6 +206,7 @@ async def handle_checkout(request: web.Request) -> web.Response:
             name=name,
             phone=phone,
             address=address or "—",
+            delivery_label=delivery_label,
             payment_label=payment_label,
             discount_line=discount_line,
             items=items_text,

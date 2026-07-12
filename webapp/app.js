@@ -438,6 +438,7 @@ contactForm.addEventListener("submit", async (event) => {
     name: formData.get("name")?.toString().trim() || "",
     phone: formData.get("phone")?.toString().trim() || "",
     address: formData.get("address")?.toString().trim() || "",
+    delivery_method: formData.get("delivery_method")?.toString() || "russian_post",
     payment_method: formData.get("payment_method")?.toString() || "transfer",
   };
 

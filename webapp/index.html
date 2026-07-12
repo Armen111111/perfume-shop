@@ -112,6 +112,25 @@
           <input type="text" name="address" maxlength="200" placeholder="Город, улица, дом, квартира" />
         </label>
         <fieldset class="payment-choice">
+          <legend>Способ доставки</legend>
+          <label class="radio-row">
+            <input type="radio" name="delivery_method" value="russian_post" checked />
+            Почта России (до отделения)
+          </label>
+          <label class="radio-row">
+            <input type="radio" name="delivery_method" value="cdek" />
+            СДЭК до ПВЗ
+          </label>
+          <label class="radio-row">
+            <input type="radio" name="delivery_method" value="yandex" />
+            Яндекс Доставка
+          </label>
+          <label class="radio-row">
+            <input type="radio" name="delivery_method" value="sochi" />
+            Доставка по Сочи
+          </label>
+        </fieldset>
+        <fieldset class="payment-choice">
           <legend>Способ оплаты</legend>
           <label class="radio-row">
             <input type="radio" name="payment_method" value="transfer" checked />
