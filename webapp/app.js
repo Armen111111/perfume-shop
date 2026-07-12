@@ -11,9 +11,11 @@ const state = {
   cart: {}, // { "productId::variantId": qty }
   paymentsEnabled: false,
   promo: null, // { code, percent }
+  search: "",
 };
 
 const grid = document.getElementById("product-grid");
+const searchInput = document.getElementById("search-input");
 const cartBtn = document.getElementById("cart-btn");
 const cartCount = document.getElementById("cart-count");
 const cartOverlay = document.getElementById("cart-overlay");
@@ -101,11 +103,18 @@ function renderFilters() {
   });
 }
 
+function matchesSearch(product) {
+  const q = state.search.trim().toLowerCase();
+  if (!q) return true;
+  return product.name.toLowerCase().includes(q) || product.brand.toLowerCase().includes(q);
+}
+
 function visibleProducts() {
-  if (state.tab === "all" || state.tab === "decant") return state.products;
-  if (state.tab === "hit") return state.products.filter((p) => p.is_hit);
-  if (state.tab === "new") return state.products.filter((p) => p.is_new);
-  return state.products.filter((p) => p.gender === state.tab);
+  let list = state.products;
+  if (state.tab === "hit") list = list.filter((p) => p.is_hit);
+  else if (state.tab === "new") list = list.filter((p) => p.is_new);
+  else if (state.tab !== "all" && state.tab !== "decant") list = list.filter((p) => p.gender === state.tab);
+  return list.filter(matchesSearch);
 }
 
 function variantControlHtml(product, variant) {
@@ -168,15 +177,18 @@ function decantCardHtml(product, variant) {
 function renderGrid() {
   if (state.tab === "decant") {
     const cards = [];
-    state.products.forEach((product) => {
+    state.products.filter(matchesSearch).forEach((product) => {
       product.variants
         .filter((v) => v.type === "decant")
         .forEach((variant) => cards.push(decantCardHtml(product, variant)));
     });
-    grid.innerHTML = cards.join("") || '<p class="cart-empty">Пока нет отливантов в наличии</p>';
+    grid.innerHTML = cards.join("") || '<p class="cart-empty">Ничего не найдено</p>';
     return;
   }
-  grid.innerHTML = visibleProducts().map(productCardHtml).join("");
+  const products = visibleProducts();
+  grid.innerHTML = products.length
+    ? products.map(productCardHtml).join("")
+    : '<p class="cart-empty">Ничего не найдено</p>';
 }
 
 function cartItemHtml(entry) {
@@ -292,6 +304,11 @@ filtersEl.addEventListener("click", (event) => {
   state.tab = chip.dataset.tab;
   renderFilters();
   renderGridAnimated();
+});
+
+searchInput.addEventListener("input", () => {
+  state.search = searchInput.value;
+  renderGrid();
 });
 
 cartBtn.addEventListener("click", () => {

@@ -288,23 +288,38 @@ h3 {
   font-weight: 700;
 }
 
-/* ---------- фильтры ---------- */
+/* ---------- фильтры сбоку + поиск по центру ---------- */
 
-.filters {
+.shop-layout {
   display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 16px 0;
+}
+
+.filters-rail {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
-  padding: 6px 16px 14px;
-  overflow-x: auto;
+  flex-shrink: 0;
+  width: 84px;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  position: sticky;
+  top: 78px;
 }
 
 .filter-chip {
   border: 1px solid var(--line-strong);
   background: var(--glass);
   color: var(--text);
-  padding: 6px 14px;
-  border-radius: 16px;
-  font-size: 13px;
-  white-space: nowrap;
+  padding: 8px 6px;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .filter-chip.active {
@@ -312,6 +327,45 @@ h3 {
   border-color: transparent;
   color: var(--on-accent);
   font-weight: 600;
+}
+
+.shop-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-row {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  background: var(--glass);
+  color: var(--text);
+  padding: 10px 12px 10px 34px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--silver);
 }
 
 /* ---------- промокод ---------- */
@@ -376,7 +430,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  padding: 0 16px 16px;
+  padding: 0 0 16px;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
