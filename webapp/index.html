@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Парфюм-магазин</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>🌸 Парфюм</h1>
+    <button id="cart-btn" class="cart-btn" type="button">
+      Корзина <span id="cart-count" class="cart-count">0</span>
+    </button>
+  </header>
+
+  <nav class="filters" id="filters">
+    <button class="filter-chip active" data-gender="all">Все</button>
+    <button class="filter-chip" data-gender="female">Женские</button>
+    <button class="filter-chip" data-gender="male">Мужские</button>
+  </nav>
+
+  <main id="product-grid" class="product-grid"></main>
+
+  <div id="cart-overlay" class="overlay hidden">
+    <div class="sheet">
+      <div class="sheet-header">
+        <h2>Корзина</h2>
+        <button id="close-cart" class="icon-btn" type="button">✕</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total">Итого: <span id="cart-total">0 ₽</span></div>
+        <button id="checkout-btn" class="checkout-btn" type="button">Оформить заказ</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact-overlay" class="overlay hidden">
+    <div class="sheet">
+      <div class="sheet-header">
+        <h2>Оформление заказа</h2>
+        <button id="close-contact" class="icon-btn" type="button">✕</button>
+      </div>
+      <form id="contact-form" class="contact-form">
+        <label>Имя
+          <input type="text" name="name" required maxlength="80" placeholder="Как к вам обращаться" />
+        </label>
+        <label>Телефон
+          <input type="tel" name="phone" required maxlength="30" placeholder="+7 900 000-00-00" />
+        </label>
+        <label>Адрес доставки
+          <input type="text" name="address" maxlength="200" placeholder="Город, улица, дом, квартира" />
+        </label>
+        <fieldset class="payment-choice">
+          <legend>Способ оплаты</legend>
+          <label class="radio-row">
+            <input type="radio" name="payment_method" value="transfer" checked />
+            Перевод на карту
+          </label>
+          <label class="radio-row">
+            <input type="radio" name="payment_method" value="cash" />
+            Наличными при получении
+          </label>
+        </fieldset>
+        <p class="contact-hint">
+          После отправки с вами свяжутся в этом чате, чтобы подтвердить заказ и способ оплаты.
+        </p>
+        <button id="submit-order-btn" class="checkout-btn" type="submit">Отправить заказ</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
