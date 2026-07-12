@@ -177,7 +177,7 @@ function productCardHtml(product) {
         <span class="product-volume">${full.volume_ml} мл</span>
         ${product.description ? `<p class="product-description">${product.description}</p>` : ""}
         <div class="product-price-row">
-          <span class="product-price">${formatPrice(full.price)}</span>
+          <span class="product-price">Узнать стоимость</span>
         </div>
         ${variantControlHtml(product, full)}
       </div>
@@ -194,7 +194,7 @@ function decantCardHtml(product, variant) {
         <span class="product-name">${product.name}</span>
         <span class="product-volume">${variant.label}</span>
         <div class="product-price-row">
-          <span class="product-price">${formatPrice(variant.price)}</span>
+          <span class="product-price">Узнать стоимость</span>
         </div>
         ${variantControlHtml(product, variant)}
       </div>
