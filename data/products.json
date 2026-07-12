@@ -6,8 +6,8 @@
     "gender": "unisex",
     "is_hit": true,
     "is_new": false,
-    "description": "Hormone Paris This is not Gaba — нишевый унисекс-аромат.",
-    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Gaba",
+    "description": "Аромат спокойствия: мандарин и маракуйя на старте, фрезия и жасмин в сердце, амбра и мох в базе — мягкое, безмятежное звучание.",
+    "image": "images/gaba.jpg",
     "variants": [
       {
         "id": "decant-5ml",
@@ -50,8 +50,8 @@
     "gender": "unisex",
     "is_hit": false,
     "is_new": false,
-    "description": "Hormone Paris This is not Endorphin — нишевый унисекс-аромат.",
-    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Endorphin",
+    "description": "«Виновник эйфории»: розовый перец, чёрная смородина и шафран на старте, ваниль и жасмин в сердце — лёгкость и всплеск радости.",
+    "image": "images/endorphin.jpg",
     "variants": [
       {
         "id": "decant-5ml",
@@ -94,8 +94,8 @@
     "gender": "unisex",
     "is_hit": false,
     "is_new": false,
-    "description": "Hormone Paris This is not Dopamine — нишевый унисекс-аромат.",
-    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Dopamine",
+    "description": "Экзотичный и притягательный аромат, вдохновлённый гормоном счастья: шафран и мускатный орех, уд и лаванда, мускус и пачули в базе.",
+    "image": "images/dopamine.png",
     "variants": [
       {
         "id": "decant-5ml",
@@ -138,8 +138,8 @@
     "gender": "unisex",
     "is_hit": false,
     "is_new": false,
-    "description": "Hormone Paris This is not Adrenaline — нишевый унисекс-аромат.",
-    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Adrenaline",
+    "description": "Пульсирующая композиция: пряная малина и роза на старте, шафран и герань в сердце, уд, пачули и ваниль в базе — фокус и внутренняя энергия.",
+    "image": "images/adrenaline.jpg",
     "variants": [
       {
         "id": "decant-5ml",
@@ -182,8 +182,8 @@
     "gender": "unisex",
     "is_hit": false,
     "is_new": false,
-    "description": "Hormone Paris This is not Kisspeptin — нишевый унисекс-аромат.",
-    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Kisspeptin",
+    "description": "Чувственный и загадочный аромат притяжения: кардамон и лабданум, кожа, кипарис и уд, мускус, тонка и ваниль в базе.",
+    "image": "images/kisspeptin.jpg",
     "variants": [
       {
         "id": "decant-5ml",
@@ -226,8 +226,8 @@
     "gender": "unisex",
     "is_hit": false,
     "is_new": false,
-    "description": "Hormone Paris This is not Oxytocin — нишевый унисекс-аромат.",
-    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Oxytocin",
+    "description": "Тёплая, обволакивающая композиция близости: бергамот и малина на старте, ирис, жасмин и карамель в сердце, мускус и амбра в базе.",
+    "image": "images/oxytocin.jpg",
     "variants": [
       {
         "id": "decant-5ml",
@@ -270,8 +270,8 @@
     "gender": "unisex",
     "is_hit": false,
     "is_new": true,
-    "description": "Hormone Paris This is not Serotonin — нишевый унисекс-аромат.",
-    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Serotonin",
+    "description": "Гармоничное сочетание радости и лёгкости: герань и бергамот на старте, кипарис, мускатный орех и кедр в сердце, мох, ветивер и уд в базе.",
+    "image": "images/serotonin.jpg",
     "variants": [
       {
         "id": "decant-5ml",
@@ -314,8 +314,8 @@
     "gender": "unisex",
     "is_hit": true,
     "is_new": false,
-    "description": "Hormone Paris This is not Testosterone — нишевый унисекс-аромат.",
-    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Testosterone",
+    "description": "Аромат силы и притяжения: грейпфрут, кардамон и корица на старте, гваяковое дерево, ваниль и жасмин в сердце, сандал и мускус в базе.",
+    "image": "images/testosterone.jpg",
     "variants": [
       {
         "id": "decant-2ml",

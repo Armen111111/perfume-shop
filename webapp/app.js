@@ -145,6 +145,7 @@ function productCardHtml(product) {
         <span class="product-brand">${product.brand}</span>
         <span class="product-name">${product.name}</span>
         <span class="product-volume">${full.volume_ml} мл</span>
+        ${product.description ? `<p class="product-description">${product.description}</p>` : ""}
         <div class="product-price-row">
           <span class="product-price">${formatPrice(full.price)}</span>
         </div>
