@@ -28,8 +28,22 @@
     </button>
   </header>
 
+  <section class="hero">
+    <h2 class="hero-title">Добро пожаловать в LUMÉ</h2>
+    <p class="hero-subtitle">Нишевая парфюмерия напрямую от дистрибьютора — без переплат и посредников.</p>
+    <div class="hero-divider"></div>
+    <ul class="trust-list">
+      <li>100% оригинальная продукция</li>
+      <li>Нишевые ароматы, которых нет в масс-маркете</li>
+      <li>Отливанты (распив) — попробовать перед покупкой полного флакона</li>
+      <li>Подбор аромата и ответ на вопросы — прямо в этом чате</li>
+    </ul>
+  </section>
+
   <nav class="filters" id="filters">
     <button class="filter-chip active" data-tab="all">Все</button>
+    <button class="filter-chip" data-tab="hit">🏆 Хиты</button>
+    <button class="filter-chip" data-tab="new">🆕 Новинки</button>
     <button class="filter-chip" data-tab="female">Женские</button>
     <button class="filter-chip" data-tab="male">Мужские</button>
     <button class="filter-chip" data-tab="unisex">Унисекс</button>
@@ -37,6 +51,22 @@
   </nav>
 
   <main id="product-grid" class="product-grid"></main>
+
+  <section class="advantages">
+    <h2>Почему выбирают нас</h2>
+    <ul>
+      <li>Только оригинальная парфюмерия</li>
+      <li>Прямая поставка от проверенного дистрибьютора</li>
+      <li>Аккуратная упаковка для доставки</li>
+      <li>Отливанты — можно попробовать перед покупкой флакона</li>
+      <li>Персональная консультация по подбору аромата в чате</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-title">Спасибо, что выбираете нас 🖤</div>
+    <p class="footer-text">Мы помогаем находить ароматы, которые становятся частью вашего стиля.</p>
+  </footer>
 
   <div id="cart-overlay" class="overlay hidden">
     <div class="sheet">
@@ -46,6 +76,15 @@
       </div>
       <div id="cart-items" class="cart-items"></div>
       <div class="cart-footer">
+        <div class="promo-row">
+          <input type="text" id="promo-input" placeholder="🎟 Промокод" maxlength="20" />
+          <button id="promo-apply-btn" class="promo-apply-btn" type="button">Применить</button>
+        </div>
+        <div id="promo-status" class="promo-status"></div>
+        <div id="cart-discount-row" class="cart-discount-row hidden">
+          <span>Скидка по промокоду</span>
+          <span id="cart-discount">−0 ₽</span>
+        </div>
         <div class="cart-total">Итого: <span id="cart-total">0 ₽</span></div>
         <button id="checkout-btn" class="checkout-btn" type="button">Оформить заказ</button>
       </div>

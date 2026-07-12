@@ -46,7 +46,14 @@ async def create_pending_order(order_id: str, user_id: int, items: list[dict], t
 
 
 async def create_manual_order(
-    order_id: str, user_id: int, items: list[dict], total: int, currency: str, contact: dict
+    order_id: str,
+    user_id: int,
+    items: list[dict],
+    total: int,
+    currency: str,
+    contact: dict,
+    promo_code: str | None = None,
+    discount_amount: int = 0,
 ) -> dict:
     """Заказ без онлайн-оплаты: клиент оплачивает вне бота (перевод/наличные),
     админ получает контакты и сам подтверждает оплату."""
@@ -58,6 +65,8 @@ async def create_manual_order(
         "currency": currency,
         "status": "new",
         "contact": contact,
+        "promo_code": promo_code,
+        "discount_amount": discount_amount,
         "created_at": datetime.now(timezone.utc).isoformat(),
         "paid_at": None,
     }

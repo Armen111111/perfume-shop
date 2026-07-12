@@ -7,6 +7,7 @@ from aiohttp import web
 from bot.config import Config
 from bot.services import catalog
 from bot.services import orders as orders_service
+from bot.services import promo
 from bot.services.webapp_auth import validate_init_data
 
 WEBAPP_DIR = Path(__file__).resolve().parent.parent / "webapp"
@@ -20,6 +21,7 @@ def create_app(bot: Bot, config: Config) -> web.Application:
     app.router.add_get("/", handle_index)
     app.router.add_get("/api/config", handle_get_config)
     app.router.add_get("/api/products", handle_get_products)
+    app.router.add_post("/api/promo/validate", handle_validate_promo)
     app.router.add_post("/api/checkout", handle_checkout)
     app.router.add_static("/", WEBAPP_DIR, show_index=False)
 
@@ -37,6 +39,19 @@ async def handle_get_config(request: web.Request) -> web.Response:
 
 async def handle_get_products(request: web.Request) -> web.Response:
     return web.json_response(catalog.get_all_products())
+
+
+async def handle_validate_promo(request: web.Request) -> web.Response:
+    try:
+        body = await request.json()
+    except Exception:
+        return web.json_response({"error": "invalid_json"}, status=400)
+
+    code = str(body.get("code", ""))
+    percent = promo.get_discount_percent(code)
+    if percent is None:
+        return web.json_response({"valid": False})
+    return web.json_response({"valid": True, "percent": percent, "code": code.strip().upper()})
 
 
 def _build_order_lines(cart: list[dict]) -> tuple[list[dict], list[LabeledPrice], int] | web.Response:
@@ -104,11 +119,20 @@ async def handle_checkout(request: web.Request) -> web.Response:
     result = _build_order_lines(cart)
     if isinstance(result, web.Response):
         return result
-    order_items, prices, total = result
+    order_items, prices, subtotal = result
+
+    promo_code = str(body.get("promo_code", "")).strip()
+    discount_percent = promo.get_discount_percent(promo_code) if promo_code else None
+    discount_amount = (subtotal * discount_percent) // 100 if discount_percent else 0
+    total = subtotal - discount_amount
 
     order_id = orders_service.new_order_id()
 
     if config.payments_enabled:
+        if discount_amount:
+            prices.append(
+                LabeledPrice(label=f"Промокод {promo_code.upper()} (-{discount_percent}%)", amount=-discount_amount * 100)
+            )
         await orders_service.create_pending_order(order_id, user_id, order_items, total, config.currency)
         invoice_link = await bot.create_invoice_link(
             title="Заказ в парфюмерном магазине",
@@ -136,12 +160,19 @@ async def handle_checkout(request: web.Request) -> web.Response:
         total,
         config.currency,
         {"name": name, "phone": phone, "address": address, "payment_method": payment_method},
+        promo_code=promo_code.upper() if discount_amount else None,
+        discount_amount=discount_amount,
     )
 
     username = user.get("username")
     user_label = f"@{username}" if username else str(user_id)
     items_text = "\n".join(f"• {i['name']} × {i['qty']}" for i in order_items)
     payment_label = "Перевод на карту" if payment_method == "transfer" else "Наличными при получении"
+    discount_line = (
+        f"Промокод: {promo_code.upper()} (-{discount_percent}%, -{discount_amount} {config.currency})\n"
+        if discount_amount
+        else ""
+    )
 
     await bot.send_message(
         config.admin_chat_id,
@@ -150,7 +181,8 @@ async def handle_checkout(request: web.Request) -> web.Response:
         "Имя: {name}\n"
         "Телефон: {phone}\n"
         "Адрес: {address}\n"
-        "Оплата: {payment_label}\n\n"
+        "Оплата: {payment_label}\n"
+        "{discount_line}\n"
         "{items}\n\n"
         "Итого: {total} {currency}".format(
             id=order_id,
@@ -160,6 +192,7 @@ async def handle_checkout(request: web.Request) -> web.Response:
             phone=phone,
             address=address or "—",
             payment_label=payment_label,
+            discount_line=discount_line,
             items=items_text,
             total=total,
             currency=config.currency,

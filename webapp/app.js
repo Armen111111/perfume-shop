@@ -7,9 +7,10 @@ if (tg) {
 
 const state = {
   products: [],
-  tab: "all", // all | female | male | unisex | decant
+  tab: "all", // all | hit | new | female | male | unisex | decant
   cart: {}, // { "productId::variantId": qty }
   paymentsEnabled: false,
+  promo: null, // { code, percent }
 };
 
 const grid = document.getElementById("product-grid");
@@ -25,6 +26,11 @@ const toastEl = document.getElementById("toast");
 const contactOverlay = document.getElementById("contact-overlay");
 const closeContactBtn = document.getElementById("close-contact");
 const contactForm = document.getElementById("contact-form");
+const promoInput = document.getElementById("promo-input");
+const promoApplyBtn = document.getElementById("promo-apply-btn");
+const promoStatusEl = document.getElementById("promo-status");
+const cartDiscountRow = document.getElementById("cart-discount-row");
+const cartDiscountEl = document.getElementById("cart-discount");
 
 function formatPrice(value) {
   return `${value.toLocaleString("ru-RU")} ₽`;
@@ -97,6 +103,8 @@ function renderFilters() {
 
 function visibleProducts() {
   if (state.tab === "all" || state.tab === "decant") return state.products;
+  if (state.tab === "hit") return state.products.filter((p) => p.is_hit);
+  if (state.tab === "new") return state.products.filter((p) => p.is_new);
   return state.products.filter((p) => p.gender === state.tab);
 }
 
@@ -127,8 +135,11 @@ function productCardHtml(product) {
   const tester = product.variants.find((v) => v.type === "tester");
   if (!full) return "";
 
+  const badge = product.is_hit ? "🏆 Хит" : product.is_new ? "🆕 Новинка" : "";
+
   return `
     <div class="product-card">
+      ${badge ? `<span class="product-badge">${badge}</span>` : ""}
       <img src="${product.image}" alt="${product.name}" loading="lazy" />
       <div class="product-info">
         <span class="product-brand">${product.brand}</span>
@@ -201,14 +212,58 @@ function cartItemHtml(entry) {
   `;
 }
 
+function discountAmount() {
+  if (!state.promo) return 0;
+  return Math.floor((cartTotal() * state.promo.percent) / 100);
+}
+
 function renderCart() {
   const entries = cartEntries();
   cartItemsEl.innerHTML = entries.length
     ? entries.map(cartItemHtml).join("")
     : '<div class="cart-empty">Корзина пуста</div>';
-  cartTotalEl.textContent = formatPrice(cartTotal());
+
+  const discount = discountAmount();
+  if (discount > 0) {
+    cartDiscountRow.classList.remove("hidden");
+    cartDiscountEl.textContent = `−${formatPrice(discount)}`;
+  } else {
+    cartDiscountRow.classList.add("hidden");
+  }
+
+  cartTotalEl.textContent = formatPrice(cartTotal() - discount);
   checkoutBtn.disabled = entries.length === 0;
 }
+
+promoApplyBtn.addEventListener("click", async () => {
+  const code = promoInput.value.trim();
+  if (!code) return;
+
+  promoApplyBtn.disabled = true;
+  try {
+    const response = await fetch("/api/promo/validate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code }),
+    });
+    const data = await response.json();
+    if (data.valid) {
+      state.promo = { code: data.code, percent: data.percent };
+      promoStatusEl.textContent = `✓ Промокод применён: −${data.percent}%`;
+      promoStatusEl.className = "promo-status ok";
+    } else {
+      state.promo = null;
+      promoStatusEl.textContent = "Промокод не найден";
+      promoStatusEl.className = "promo-status error";
+    }
+  } catch (err) {
+    promoStatusEl.textContent = "Не удалось проверить промокод";
+    promoStatusEl.className = "promo-status error";
+  } finally {
+    promoApplyBtn.disabled = false;
+    renderCart();
+  }
+});
 
 grid.addEventListener("click", (event) => {
   const addBtn = event.target.closest(".add-btn[data-product]");
@@ -251,6 +306,9 @@ closeCartBtn.addEventListener("click", () => {
 
 function clearCartAndClose() {
   state.cart = {};
+  state.promo = null;
+  promoInput.value = "";
+  promoStatusEl.textContent = "";
   renderCartBadge();
   renderGrid();
   renderCart();
@@ -263,7 +321,12 @@ async function submitOrder(extraPayload) {
   const response = await fetch("/api/checkout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ initData: tg?.initData || "", items, ...extraPayload }),
+    body: JSON.stringify({
+      initData: tg?.initData || "",
+      items,
+      promo_code: state.promo?.code || "",
+      ...extraPayload,
+    }),
   });
   const data = await response.json();
   if (!response.ok) {

@@ -1,20 +1,18 @@
 :root {
-  --bg: var(--tg-theme-bg-color, #ffffff);
-  --text: var(--tg-theme-text-color, #1c1c1e);
-  --hint: var(--tg-theme-hint-color, #8e8e93);
-  --link: var(--tg-theme-link-color, #a05a2c);
-  --secondary-bg: var(--tg-theme-secondary-bg-color, #f4f2ef);
-  --card-bg: var(--tg-theme-section-bg-color, #ffffff);
-
-  /* фирменные акценты — не зависят от темы Telegram, держат стиль бренда */
-  --gold-light: #f0d38a;
-  --gold: #c9a24a;
-  --gold-deep: #8f7534;
-  --wine: #7a2f45;
-  --on-gold: #17130a;
-
-  --button: var(--gold);
-  --button-text: var(--on-gold);
+  /* монохромная премиальная палитра: чёрный / графит / серебро / стекло — без золота.
+     Бренд намеренно не подстраивается под тему Telegram — это фирменный вид бутика. */
+  --bg: #0a0a0b;
+  --bg-elevated: #17181a;
+  --graphite: #202124;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-strong: rgba(255, 255, 255, 0.08);
+  --text: #f3f3f4;
+  --muted: #9a9ba2;
+  --silver: #d6d7db;
+  --accent-grad: linear-gradient(135deg, #ffffff, #c3c5cb);
+  --on-accent: #0a0a0b;
 }
 
 * {
@@ -23,7 +21,7 @@
 
 html,
 body {
-  background: var(--secondary-bg);
+  background: var(--bg);
 }
 
 body {
@@ -31,16 +29,18 @@ body {
   position: relative;
   font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--text);
-  padding-bottom: 24px;
+  padding-bottom: 28px;
   min-height: 100vh;
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Cormorant Garamond", Georgia, serif;
+  margin: 0;
 }
 
-/* ---------- живой фон ---------- */
+/* ---------- живой фон: дымчатые монохромные пятна ---------- */
 
 .bg-decor {
   position: fixed;
@@ -53,37 +53,37 @@ h2 {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.32;
+  filter: blur(70px);
+  opacity: 0.25;
   will-change: transform;
   animation: drift ease-in-out infinite;
 }
 
 .blob-gold {
-  width: 260px;
-  height: 260px;
+  width: 280px;
+  height: 280px;
   top: -60px;
   left: -60px;
-  background: radial-gradient(circle, var(--gold-light), transparent 70%);
-  animation-duration: 22s;
+  background: radial-gradient(circle, #ffffff, transparent 70%);
+  animation-duration: 24s;
 }
 
 .blob-amber {
-  width: 320px;
-  height: 320px;
-  top: 28%;
-  right: -100px;
-  background: radial-gradient(circle, var(--gold), transparent 70%);
+  width: 340px;
+  height: 340px;
+  top: 26%;
+  right: -110px;
+  background: radial-gradient(circle, #8a8d94, transparent 70%);
   animation-duration: 30s;
   animation-delay: -8s;
 }
 
 .blob-wine {
-  width: 280px;
-  height: 280px;
-  bottom: -80px;
-  left: 15%;
-  background: radial-gradient(circle, var(--wine), transparent 70%);
+  width: 300px;
+  height: 300px;
+  bottom: -90px;
+  left: 12%;
+  background: radial-gradient(circle, #4b4d52, transparent 70%);
   animation-duration: 34s;
   animation-delay: -15s;
 }
@@ -114,11 +114,13 @@ h2 {
   align-items: center;
   justify-content: space-between;
   padding: 18px 16px;
-  background: var(--bg);
+  background: rgba(10, 10, 11, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid rgba(201, 162, 74, 0.18);
+  border-bottom: 1px solid var(--line);
 }
 
 .brand {
@@ -128,27 +130,23 @@ h2 {
 }
 
 .header h1 {
-  margin: 0;
   font-size: 26px;
   font-weight: 700;
-  letter-spacing: 3px;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  letter-spacing: 4px;
+  color: var(--text);
 }
 
 .brand-tagline {
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--hint);
+  color: var(--muted);
   margin-top: 2px;
 }
 
 .cart-btn {
-  border: 1px solid rgba(201, 162, 74, 0.5);
-  background: transparent;
+  border: 1px solid var(--line-strong);
+  background: var(--glass);
   color: var(--text);
   padding: 8px 14px;
   border-radius: 20px;
@@ -159,16 +157,71 @@ h2 {
 }
 
 .cart-btn-icon {
-  color: var(--gold);
+  color: var(--silver);
   font-size: 15px;
 }
 
 .cart-count {
-  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
-  color: var(--on-gold);
+  background: var(--accent-grad);
+  color: var(--on-accent);
   border-radius: 10px;
   padding: 1px 7px;
   font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- hero-блок ---------- */
+
+.hero {
+  margin: 16px;
+  padding: 22px 18px;
+  border-radius: 18px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.hero-subtitle {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.hero-divider {
+  margin: 16px auto;
+  width: 40px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.trust-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.trust-list li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--silver);
+}
+
+.trust-list li::before {
+  content: "✓";
+  color: var(--text);
   font-weight: 700;
 }
 
@@ -177,13 +230,13 @@ h2 {
 .filters {
   display: flex;
   gap: 8px;
-  padding: 14px 16px;
+  padding: 6px 16px 14px;
   overflow-x: auto;
 }
 
 .filter-chip {
-  border: 1px solid rgba(142, 142, 147, 0.4);
-  background: var(--card-bg);
+  border: 1px solid var(--line-strong);
+  background: var(--glass);
   color: var(--text);
   padding: 6px 14px;
   border-radius: 16px;
@@ -192,10 +245,66 @@ h2 {
 }
 
 .filter-chip.active {
-  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  background: var(--accent-grad);
   border-color: transparent;
-  color: var(--on-gold);
+  color: var(--on-accent);
   font-weight: 600;
+}
+
+/* ---------- промокод ---------- */
+
+.promo-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.promo-row input {
+  flex: 1;
+  border: 1px solid var(--line-strong);
+  background: var(--glass);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.promo-row input::placeholder {
+  color: var(--muted);
+  text-transform: none;
+}
+
+.promo-apply-btn {
+  border: 1px solid var(--line-strong);
+  background: var(--glass-strong);
+  color: var(--text);
+  padding: 0 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.promo-status {
+  font-size: 12px;
+  margin: -4px 0 12px;
+  min-height: 16px;
+}
+
+.promo-status.ok {
+  color: #b9ffcf;
+}
+
+.promo-status.error {
+  color: #ffb3b3;
+}
+
+.cart-discount-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 4px;
 }
 
 /* ---------- карточки товаров ---------- */
@@ -208,14 +317,17 @@ h2 {
 }
 
 .product-card {
-  background: var(--card-bg);
+  background: var(--glass);
+  border: 1px solid var(--line);
   border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   transition: transform 0.15s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .product-card:active {
@@ -226,7 +338,22 @@ h2 {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  background: var(--secondary-bg);
+  background: var(--graphite);
+}
+
+.product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(10, 10, 11, 0.75);
+  border: 1px solid var(--line-strong);
+  color: var(--silver);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
 }
 
 .product-info {
@@ -239,7 +366,7 @@ h2 {
 
 .product-brand {
   font-size: 10px;
-  color: var(--gold-deep);
+  color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-weight: 600;
@@ -253,7 +380,7 @@ h2 {
 
 .product-volume {
   font-size: 12px;
-  color: var(--hint);
+  color: var(--muted);
 }
 
 .product-price-row {
@@ -267,12 +394,12 @@ h2 {
 .product-price {
   font-size: 16px;
   font-weight: 700;
-  color: var(--gold-deep);
+  color: var(--text);
 }
 
 .product-old-price {
   font-size: 12px;
-  color: var(--hint);
+  color: var(--muted);
   text-decoration: line-through;
 }
 
@@ -290,8 +417,8 @@ h2 {
 .add-btn {
   margin-top: 8px;
   border: none;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
-  color: var(--on-gold);
+  background: var(--accent-grad);
+  color: var(--on-accent);
   padding: 8px;
   border-radius: 10px;
   font-size: 13px;
@@ -299,8 +426,8 @@ h2 {
 }
 
 .add-btn:disabled {
-  background: var(--hint);
-  color: #fff;
+  background: var(--graphite);
+  color: var(--muted);
 }
 
 .qty-control {
@@ -308,7 +435,8 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--secondary-bg);
+  background: var(--glass-strong);
+  border: 1px solid var(--line);
   border-radius: 10px;
   padding: 4px;
 }
@@ -318,8 +446,8 @@ h2 {
   height: 28px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
-  color: var(--on-gold);
+  background: var(--accent-grad);
+  color: var(--on-accent);
   font-size: 16px;
   line-height: 1;
 }
@@ -327,7 +455,7 @@ h2 {
 .variant-secondary {
   margin-top: 8px;
   padding-top: 8px;
-  border-top: 1px dashed rgba(201, 162, 74, 0.3);
+  border-top: 1px dashed var(--line);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -336,16 +464,16 @@ h2 {
 
 .variant-secondary-label {
   font-size: 12px;
-  color: var(--hint);
+  color: var(--muted);
 }
 
 .add-btn-compact {
   flex-shrink: 0;
   width: 26px;
   height: 26px;
-  border: 1px solid rgba(201, 162, 74, 0.6);
+  border: 1px solid var(--line-strong);
   background: transparent;
-  color: var(--gold-deep);
+  color: var(--silver);
   border-radius: 8px;
   font-size: 15px;
   line-height: 1;
@@ -365,13 +493,69 @@ h2 {
 
 .variant-oos {
   font-size: 11px;
-  color: var(--hint);
+  color: var(--muted);
   flex-shrink: 0;
 }
 
-.cart-item-variant {
-  font-size: 11px;
-  color: var(--hint);
+/* ---------- преимущества ---------- */
+
+.advantages {
+  margin: 8px 16px 16px;
+  padding: 20px 18px;
+  border-radius: 18px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.advantages h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.advantages ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.advantages li {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--silver);
+}
+
+.advantages li::before {
+  content: "✔";
+  color: var(--text);
+}
+
+/* ---------- футер ---------- */
+
+.footer {
+  margin: 8px 16px 0;
+  padding: 22px 18px;
+  border-radius: 18px;
+  text-align: center;
+  border: 1px solid var(--line);
+  background: var(--glass);
+}
+
+.footer-title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.footer-text {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 /* ---------- шторки (корзина / заказ) ---------- */
@@ -379,7 +563,7 @@ h2 {
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: flex-end;
   z-index: 100;
@@ -390,14 +574,14 @@ h2 {
 }
 
 .sheet {
-  background: var(--bg);
+  background: var(--bg-elevated);
   width: 100%;
   max-height: 80vh;
   border-radius: 20px 20px 0 0;
   display: flex;
   flex-direction: column;
   padding: 16px;
-  border-top: 1px solid rgba(201, 162, 74, 0.3);
+  border-top: 1px solid var(--line-strong);
 }
 
 .sheet-header {
@@ -408,7 +592,6 @@ h2 {
 }
 
 .sheet-header h2 {
-  margin: 0;
   font-size: 22px;
   font-weight: 700;
 }
@@ -433,7 +616,7 @@ h2 {
   align-items: center;
   gap: 10px;
   padding: 8px 0;
-  border-bottom: 1px solid var(--secondary-bg);
+  border-bottom: 1px solid var(--line);
 }
 
 .cart-item img {
@@ -458,17 +641,17 @@ h2 {
 
 .cart-item-price {
   font-size: 12px;
-  color: var(--hint);
+  color: var(--muted);
 }
 
 .cart-empty {
   text-align: center;
-  color: var(--hint);
+  color: var(--muted);
   padding: 30px 0;
 }
 
 .cart-footer {
-  border-top: 1px solid var(--secondary-bg);
+  border-top: 1px solid var(--line);
   padding-top: 12px;
   margin-top: 8px;
 }
@@ -482,19 +665,19 @@ h2 {
 .checkout-btn {
   width: 100%;
   border: none;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
-  color: var(--on-gold);
+  background: var(--accent-grad);
+  color: var(--on-accent);
   padding: 13px;
   border-radius: 12px;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.3px;
-  box-shadow: 0 6px 16px rgba(201, 162, 74, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 .checkout-btn:disabled {
-  background: var(--hint);
-  color: #fff;
+  background: var(--graphite);
+  color: var(--muted);
   box-shadow: none;
 }
 
@@ -510,13 +693,13 @@ h2 {
   flex-direction: column;
   gap: 4px;
   font-size: 13px;
-  color: var(--hint);
+  color: var(--muted);
 }
 
 .contact-form input[type="text"],
 .contact-form input[type="tel"] {
-  border: 1px solid var(--secondary-bg);
-  background: var(--secondary-bg);
+  border: 1px solid var(--line-strong);
+  background: var(--glass);
   border-radius: 10px;
   padding: 10px 12px;
   font-size: 14px;
@@ -526,7 +709,7 @@ h2 {
 .contact-form input[type="text"]:focus,
 .contact-form input[type="tel"]:focus {
   outline: none;
-  border-color: var(--gold);
+  border-color: var(--silver);
 }
 
 .payment-choice {
@@ -540,7 +723,7 @@ h2 {
 
 .payment-choice legend {
   font-size: 13px;
-  color: var(--hint);
+  color: var(--muted);
   padding: 0;
   margin-bottom: 4px;
 }
@@ -555,7 +738,7 @@ h2 {
 
 .contact-hint {
   font-size: 12px;
-  color: var(--hint);
+  color: var(--muted);
   margin: 0;
 }
 
@@ -564,12 +747,12 @@ h2 {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(10, 10, 10, 0.9);
+  background: rgba(10, 10, 10, 0.92);
   color: #fff;
   padding: 9px 18px;
   border-radius: 10px;
   font-size: 13px;
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--silver);
   z-index: 200;
 }
 

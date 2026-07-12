@@ -4,6 +4,8 @@
     "name": "This is not Gaba",
     "brand": "Hormone Paris",
     "gender": "unisex",
+    "is_hit": true,
+    "is_new": false,
     "description": "Hormone Paris This is not Gaba — нишевый унисекс-аромат.",
     "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Gaba",
     "variants": [
@@ -46,6 +48,8 @@
     "name": "This is not Endorphin",
     "brand": "Hormone Paris",
     "gender": "unisex",
+    "is_hit": false,
+    "is_new": false,
     "description": "Hormone Paris This is not Endorphin — нишевый унисекс-аромат.",
     "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Endorphin",
     "variants": [
@@ -88,6 +92,8 @@
     "name": "This is not Dopamine",
     "brand": "Hormone Paris",
     "gender": "unisex",
+    "is_hit": false,
+    "is_new": false,
     "description": "Hormone Paris This is not Dopamine — нишевый унисекс-аромат.",
     "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Dopamine",
     "variants": [
@@ -130,6 +136,8 @@
     "name": "This is not Adrenaline",
     "brand": "Hormone Paris",
     "gender": "unisex",
+    "is_hit": false,
+    "is_new": false,
     "description": "Hormone Paris This is not Adrenaline — нишевый унисекс-аромат.",
     "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Adrenaline",
     "variants": [
@@ -172,6 +180,8 @@
     "name": "This is not Kisspeptin",
     "brand": "Hormone Paris",
     "gender": "unisex",
+    "is_hit": false,
+    "is_new": false,
     "description": "Hormone Paris This is not Kisspeptin — нишевый унисекс-аромат.",
     "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Kisspeptin",
     "variants": [
@@ -214,6 +224,8 @@
     "name": "This is not Oxytocin",
     "brand": "Hormone Paris",
     "gender": "unisex",
+    "is_hit": false,
+    "is_new": false,
     "description": "Hormone Paris This is not Oxytocin — нишевый унисекс-аромат.",
     "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Oxytocin",
     "variants": [
@@ -256,6 +268,8 @@
     "name": "This is not Serotonin",
     "brand": "Hormone Paris",
     "gender": "unisex",
+    "is_hit": false,
+    "is_new": true,
     "description": "Hormone Paris This is not Serotonin — нишевый унисекс-аромат.",
     "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Serotonin",
     "variants": [
@@ -298,6 +312,8 @@
     "name": "This is not Testosterone",
     "brand": "Hormone Paris",
     "gender": "unisex",
+    "is_hit": true,
+    "is_new": false,
     "description": "Hormone Paris This is not Testosterone — нишевый унисекс-аромат.",
     "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Testosterone",
     "variants": [
