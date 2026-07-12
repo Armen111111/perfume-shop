@@ -3,69 +3,187 @@
   --text: var(--tg-theme-text-color, #1c1c1e);
   --hint: var(--tg-theme-hint-color, #8e8e93);
   --link: var(--tg-theme-link-color, #a05a2c);
-  --button: var(--tg-theme-button-color, #a05a2c);
-  --button-text: var(--tg-theme-button-text-color, #ffffff);
   --secondary-bg: var(--tg-theme-secondary-bg-color, #f4f2ef);
   --card-bg: var(--tg-theme-section-bg-color, #ffffff);
+
+  /* фирменные акценты — не зависят от темы Telegram, держат стиль бренда */
+  --gold-light: #f0d38a;
+  --gold: #c9a24a;
+  --gold-deep: #8f7534;
+  --wine: #7a2f45;
+  --on-gold: #17130a;
+
+  --button: var(--gold);
+  --button-text: var(--on-gold);
 }
 
 * {
   box-sizing: border-box;
 }
 
+html,
+body {
+  background: var(--secondary-bg);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--secondary-bg);
+  position: relative;
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--text);
   padding-bottom: 24px;
+  min-height: 100vh;
 }
+
+h1,
+h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* ---------- живой фон ---------- */
+
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.32;
+  will-change: transform;
+  animation: drift ease-in-out infinite;
+}
+
+.blob-gold {
+  width: 260px;
+  height: 260px;
+  top: -60px;
+  left: -60px;
+  background: radial-gradient(circle, var(--gold-light), transparent 70%);
+  animation-duration: 22s;
+}
+
+.blob-amber {
+  width: 320px;
+  height: 320px;
+  top: 28%;
+  right: -100px;
+  background: radial-gradient(circle, var(--gold), transparent 70%);
+  animation-duration: 30s;
+  animation-delay: -8s;
+}
+
+.blob-wine {
+  width: 280px;
+  height: 280px;
+  bottom: -80px;
+  left: 15%;
+  background: radial-gradient(circle, var(--wine), transparent 70%);
+  animation-duration: 34s;
+  animation-delay: -15s;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(24px, -18px) scale(1.08);
+  }
+  66% {
+    transform: translate(-18px, 20px) scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
+}
+
+/* ---------- шапка ---------- */
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
+  padding: 18px 16px;
   background: var(--bg);
   position: sticky;
   top: 0;
   z-index: 10;
+  border-bottom: 1px solid rgba(201, 162, 74, 0.18);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
 }
 
 .header h1 {
   margin: 0;
-  font-size: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-tagline {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--hint);
+  margin-top: 2px;
 }
 
 .cart-btn {
-  border: none;
-  background: var(--button);
-  color: var(--button-text);
+  border: 1px solid rgba(201, 162, 74, 0.5);
+  background: transparent;
+  color: var(--text);
   padding: 8px 14px;
   border-radius: 20px;
   font-size: 14px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
+}
+
+.cart-btn-icon {
+  color: var(--gold);
+  font-size: 15px;
 }
 
 .cart-count {
-  background: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  color: var(--on-gold);
   border-radius: 10px;
   padding: 1px 7px;
   font-size: 12px;
+  font-weight: 700;
 }
+
+/* ---------- фильтры ---------- */
 
 .filters {
   display: flex;
   gap: 8px;
-  padding: 12px 16px;
+  padding: 14px 16px;
   overflow-x: auto;
 }
 
 .filter-chip {
-  border: 1px solid var(--hint);
-  background: transparent;
+  border: 1px solid rgba(142, 142, 147, 0.4);
+  background: var(--card-bg);
   color: var(--text);
   padding: 6px 14px;
   border-radius: 16px;
@@ -74,10 +192,13 @@ body {
 }
 
 .filter-chip.active {
-  background: var(--button);
-  border-color: var(--button);
-  color: var(--button-text);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  border-color: transparent;
+  color: var(--on-gold);
+  font-weight: 600;
 }
+
+/* ---------- карточки товаров ---------- */
 
 .product-grid {
   display: grid;
@@ -88,11 +209,17 @@ body {
 
 .product-card {
   background: var(--card-bg);
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease;
+}
+
+.product-card:active {
+  transform: scale(0.98);
 }
 
 .product-card img {
@@ -103,7 +230,7 @@ body {
 }
 
 .product-info {
-  padding: 10px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -111,9 +238,11 @@ body {
 }
 
 .product-brand {
-  font-size: 11px;
-  color: var(--hint);
+  font-size: 10px;
+  color: var(--gold-deep);
   text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
 }
 
 .product-name {
@@ -132,11 +261,13 @@ body {
   display: flex;
   align-items: baseline;
   gap: 6px;
+  padding-top: 4px;
 }
 
 .product-price {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
+  color: var(--gold-deep);
 }
 
 .product-old-price {
@@ -159,15 +290,17 @@ body {
 .add-btn {
   margin-top: 8px;
   border: none;
-  background: var(--button);
-  color: var(--button-text);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  color: var(--on-gold);
   padding: 8px;
   border-radius: 10px;
   font-size: 13px;
+  font-weight: 600;
 }
 
 .add-btn:disabled {
   background: var(--hint);
+  color: #fff;
 }
 
 .qty-control {
@@ -185,8 +318,8 @@ body {
   height: 28px;
   border: none;
   border-radius: 8px;
-  background: var(--button);
-  color: var(--button-text);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  color: var(--on-gold);
   font-size: 16px;
   line-height: 1;
 }
@@ -194,10 +327,11 @@ body {
 .variant-secondary {
   margin-top: 8px;
   padding-top: 8px;
-  border-top: 1px dashed var(--secondary-bg);
+  border-top: 1px dashed rgba(201, 162, 74, 0.3);
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .variant-secondary-label {
@@ -205,15 +339,47 @@ body {
   color: var(--hint);
 }
 
+.add-btn-compact {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(201, 162, 74, 0.6);
+  background: transparent;
+  color: var(--gold-deep);
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.qty-control-compact {
+  margin-top: 0;
+  padding: 2px;
+}
+
+.qty-control-compact button {
+  width: 22px;
+  height: 22px;
+  font-size: 13px;
+}
+
+.variant-oos {
+  font-size: 11px;
+  color: var(--hint);
+  flex-shrink: 0;
+}
+
 .cart-item-variant {
   font-size: 11px;
   color: var(--hint);
 }
 
+/* ---------- шторки (корзина / заказ) ---------- */
+
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: flex-end;
   z-index: 100;
@@ -227,10 +393,11 @@ body {
   background: var(--bg);
   width: 100%;
   max-height: 80vh;
-  border-radius: 16px 16px 0 0;
+  border-radius: 20px 20px 0 0;
   display: flex;
   flex-direction: column;
   padding: 16px;
+  border-top: 1px solid rgba(201, 162, 74, 0.3);
 }
 
 .sheet-header {
@@ -238,6 +405,12 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
+}
+
+.sheet-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .icon-btn {
@@ -301,7 +474,7 @@ body {
 }
 
 .cart-total {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -309,16 +482,20 @@ body {
 .checkout-btn {
   width: 100%;
   border: none;
-  background: var(--button);
-  color: var(--button-text);
-  padding: 12px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  color: var(--on-gold);
+  padding: 13px;
   border-radius: 12px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 6px 16px rgba(201, 162, 74, 0.3);
 }
 
 .checkout-btn:disabled {
   background: var(--hint);
+  color: #fff;
+  box-shadow: none;
 }
 
 .contact-form {
@@ -344,6 +521,12 @@ body {
   padding: 10px 12px;
   font-size: 14px;
   color: var(--text);
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--gold);
 }
 
 .payment-choice {
@@ -381,11 +564,12 @@ body {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(10, 10, 10, 0.9);
   color: #fff;
-  padding: 8px 16px;
+  padding: 9px 18px;
   border-radius: 10px;
   font-size: 13px;
+  border-left: 3px solid var(--gold);
   z-index: 200;
 }
 
