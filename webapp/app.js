@@ -8,6 +8,7 @@ if (tg) {
 const state = {
   products: [],
   tab: "all", // all | hit | new | female | male | unisex | decant
+  brand: "all", // "all" | точное название бренда
   cart: {}, // { "productId::variantId": qty }
   paymentsEnabled: false,
   promo: null, // { code, percent }
@@ -16,6 +17,7 @@ const state = {
 
 const grid = document.getElementById("product-grid");
 const searchInput = document.getElementById("search-input");
+const brandRailEl = document.getElementById("brand-rail");
 const cartBtn = document.getElementById("cart-btn");
 const cartCount = document.getElementById("cart-count");
 const cartOverlay = document.getElementById("cart-overlay");
@@ -109,12 +111,38 @@ function matchesSearch(product) {
   return product.name.toLowerCase().includes(q) || product.brand.toLowerCase().includes(q);
 }
 
+function matchesBrand(product) {
+  return state.brand === "all" || product.brand === state.brand;
+}
+
 function visibleProducts() {
   let list = state.products;
   if (state.tab === "hit") list = list.filter((p) => p.is_hit);
   else if (state.tab === "new") list = list.filter((p) => p.is_new);
   else if (state.tab !== "all" && state.tab !== "decant") list = list.filter((p) => p.gender === state.tab);
-  return list.filter(matchesSearch);
+  return list.filter(matchesBrand).filter(matchesSearch);
+}
+
+function brandCounts() {
+  const counts = new Map();
+  state.products.forEach((p) => counts.set(p.brand, (counts.get(p.brand) || 0) + 1));
+  return [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+}
+
+function renderBrandRail() {
+  const brands = brandCounts();
+  const allChip = `<button class="brand-chip${state.brand === "all" ? " active" : ""}" data-brand="all">
+      <span>Все ароматы</span><span class="brand-chip-count">${state.products.length}</span>
+    </button>`;
+  const brandChips = brands
+    .map(
+      ([brand, count]) => `
+    <button class="brand-chip${state.brand === brand ? " active" : ""}" data-brand="${brand}">
+      <span>${brand}</span><span class="brand-chip-count">${count}</span>
+    </button>`
+    )
+    .join("");
+  brandRailEl.innerHTML = allChip + brandChips;
 }
 
 function variantControlHtml(product, variant) {
@@ -177,7 +205,7 @@ function decantCardHtml(product, variant) {
 function renderGrid() {
   if (state.tab === "decant") {
     const cards = [];
-    state.products.filter(matchesSearch).forEach((product) => {
+    state.products.filter(matchesBrand).filter(matchesSearch).forEach((product) => {
       product.variants
         .filter((v) => v.type === "decant")
         .forEach((variant) => cards.push(decantCardHtml(product, variant)));
@@ -311,6 +339,15 @@ searchInput.addEventListener("input", () => {
   renderGrid();
 });
 
+brandRailEl.addEventListener("click", (event) => {
+  const chip = event.target.closest(".brand-chip");
+  if (!chip) return;
+  if (chip.dataset.brand === state.brand) return;
+  state.brand = chip.dataset.brand;
+  renderBrandRail();
+  renderGridAnimated();
+});
+
 cartBtn.addEventListener("click", () => {
   renderCart();
   cartOverlay.classList.remove("hidden");
@@ -434,6 +471,7 @@ async function loadConfig() {
 async function loadProducts() {
   const response = await fetch("/api/products");
   state.products = await response.json();
+  renderBrandRail();
   renderGrid();
 }
 
