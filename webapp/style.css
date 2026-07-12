@@ -125,17 +125,8 @@ h3 {
 
 .brand {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
   line-height: 1.1;
-}
-
-.brand-logo {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  flex-shrink: 0;
 }
 
 .header h1 {
