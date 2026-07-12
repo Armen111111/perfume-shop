@@ -1,74 +1,346 @@
 [
   {
-    "id": "chanel-no5",
-    "name": "Chanel №5",
-    "brand": "Chanel",
-    "gender": "female",
-    "volume_ml": 50,
-    "price": 8990,
-    "old_price": 10990,
-    "description": "Легендарный цветочно-альдегидный аромат. Ноты жасмина, иланг-иланга и сандала.",
-    "image": "https://placehold.co/400x400/f5e6e8/8a6d3b?text=Chanel+No5",
-    "in_stock": true
+    "id": "hormone-paris-this-is-not-gaba",
+    "name": "This is not Gaba",
+    "brand": "Hormone Paris",
+    "gender": "unisex",
+    "description": "Hormone Paris This is not Gaba — нишевый унисекс-аромат.",
+    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Gaba",
+    "variants": [
+      {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2450,
+        "in_stock": true
+      },
+      {
+        "id": "decant-10ml",
+        "type": "decant",
+        "label": "Отливант 10 мл",
+        "volume_ml": 10,
+        "price": 4160,
+        "in_stock": true
+      },
+      {
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
+        "volume_ml": 100,
+        "price": 16570,
+        "in_stock": true
+      },
+      {
+        "id": "tester-100ml",
+        "type": "tester",
+        "label": "Духи 100 мл (тестер)",
+        "volume_ml": 100,
+        "price": 17760,
+        "in_stock": true
+      }
+    ]
   },
   {
-    "id": "dior-sauvage",
-    "name": "Dior Sauvage",
-    "brand": "Dior",
-    "gender": "male",
-    "volume_ml": 100,
-    "price": 7490,
-    "old_price": null,
-    "description": "Свежий и мужественный аромат с бергамотом и амброксаном.",
-    "image": "https://placehold.co/400x400/e8ecf0/2c3e50?text=Dior+Sauvage",
-    "in_stock": true
+    "id": "hormone-paris-this-is-not-endorphin",
+    "name": "This is not Endorphin",
+    "brand": "Hormone Paris",
+    "gender": "unisex",
+    "description": "Hormone Paris This is not Endorphin — нишевый унисекс-аромат.",
+    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Endorphin",
+    "variants": [
+      {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2290,
+        "in_stock": true
+      },
+      {
+        "id": "decant-10ml",
+        "type": "decant",
+        "label": "Отливант 10 мл",
+        "volume_ml": 10,
+        "price": 3500,
+        "in_stock": true
+      },
+      {
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
+        "volume_ml": 100,
+        "price": 16580,
+        "in_stock": true
+      },
+      {
+        "id": "tester-100ml",
+        "type": "tester",
+        "label": "Духи 100 мл (тестер)",
+        "volume_ml": 100,
+        "price": 16580,
+        "in_stock": true
+      }
+    ]
   },
   {
-    "id": "ysl-libre",
-    "name": "YSL Libre",
-    "brand": "Yves Saint Laurent",
-    "gender": "female",
-    "volume_ml": 50,
-    "price": 6990,
-    "old_price": 8490,
-    "description": "Лаванда и апельсиновый цвет в смелом, свободном сочетании.",
-    "image": "https://placehold.co/400x400/efe3f5/5b3a8a?text=YSL+Libre",
-    "in_stock": true
+    "id": "hormone-paris-this-is-not-dopamine",
+    "name": "This is not Dopamine",
+    "brand": "Hormone Paris",
+    "gender": "unisex",
+    "description": "Hormone Paris This is not Dopamine — нишевый унисекс-аромат.",
+    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Dopamine",
+    "variants": [
+      {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2810,
+        "in_stock": true
+      },
+      {
+        "id": "decant-10ml",
+        "type": "decant",
+        "label": "Отливант 10 мл",
+        "volume_ml": 10,
+        "price": 3390,
+        "in_stock": true
+      },
+      {
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
+        "volume_ml": 100,
+        "price": 13900,
+        "in_stock": true
+      },
+      {
+        "id": "tester-100ml",
+        "type": "tester",
+        "label": "Духи 100 мл (тестер)",
+        "volume_ml": 100,
+        "price": 15230,
+        "in_stock": true
+      }
+    ]
   },
   {
-    "id": "armani-code",
-    "name": "Armani Code",
-    "brand": "Giorgio Armani",
-    "gender": "male",
-    "volume_ml": 75,
-    "price": 6490,
-    "old_price": null,
-    "description": "Пряный восточный аромат с нотами лимона и табака.",
-    "image": "https://placehold.co/400x400/eef0e8/3b4a2c?text=Armani+Code",
-    "in_stock": true
+    "id": "hormone-paris-this-is-not-adrenaline",
+    "name": "This is not Adrenaline",
+    "brand": "Hormone Paris",
+    "gender": "unisex",
+    "description": "Hormone Paris This is not Adrenaline — нишевый унисекс-аромат.",
+    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Adrenaline",
+    "variants": [
+      {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2290,
+        "in_stock": true
+      },
+      {
+        "id": "decant-10ml",
+        "type": "decant",
+        "label": "Отливант 10 мл",
+        "volume_ml": 10,
+        "price": 3390,
+        "in_stock": true
+      },
+      {
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
+        "volume_ml": 100,
+        "price": 15400,
+        "in_stock": true
+      },
+      {
+        "id": "tester-100ml",
+        "type": "tester",
+        "label": "Духи 100 мл (тестер)",
+        "volume_ml": 100,
+        "price": 16000,
+        "in_stock": true
+      }
+    ]
   },
   {
-    "id": "gucci-bloom",
-    "name": "Gucci Bloom",
-    "brand": "Gucci",
-    "gender": "female",
-    "volume_ml": 50,
-    "price": 7990,
-    "old_price": null,
-    "description": "Цветочный букет туберозы, жасмина и ириса.",
-    "image": "https://placehold.co/400x400/f5e8ef/8a3b6d?text=Gucci+Bloom",
-    "in_stock": false
+    "id": "hormone-paris-this-is-not-kisspeptin",
+    "name": "This is not Kisspeptin",
+    "brand": "Hormone Paris",
+    "gender": "unisex",
+    "description": "Hormone Paris This is not Kisspeptin — нишевый унисекс-аромат.",
+    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Kisspeptin",
+    "variants": [
+      {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2430,
+        "in_stock": true
+      },
+      {
+        "id": "decant-10ml",
+        "type": "decant",
+        "label": "Отливант 10 мл",
+        "volume_ml": 10,
+        "price": 3390,
+        "in_stock": true
+      },
+      {
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
+        "volume_ml": 100,
+        "price": 12250,
+        "in_stock": true
+      },
+      {
+        "id": "tester-100ml",
+        "type": "tester",
+        "label": "Духи 100 мл (тестер)",
+        "volume_ml": 100,
+        "price": 12850,
+        "in_stock": true
+      }
+    ]
   },
   {
-    "id": "versace-eros",
-    "name": "Versace Eros",
-    "brand": "Versace",
-    "gender": "male",
-    "volume_ml": 100,
-    "price": 5990,
-    "old_price": 7290,
-    "description": "Мятная свежесть, яблоко и ванильно-мускусная база.",
-    "image": "https://placehold.co/400x400/e8eef5/2c3b8a?text=Versace+Eros",
-    "in_stock": true
+    "id": "hormone-paris-this-is-not-oxytocin",
+    "name": "This is not Oxytocin",
+    "brand": "Hormone Paris",
+    "gender": "unisex",
+    "description": "Hormone Paris This is not Oxytocin — нишевый унисекс-аромат.",
+    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Oxytocin",
+    "variants": [
+      {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2290,
+        "in_stock": true
+      },
+      {
+        "id": "decant-10ml",
+        "type": "decant",
+        "label": "Отливант 10 мл",
+        "volume_ml": 10,
+        "price": 3600,
+        "in_stock": true
+      },
+      {
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
+        "volume_ml": 100,
+        "price": 16000,
+        "in_stock": true
+      },
+      {
+        "id": "tester-100ml",
+        "type": "tester",
+        "label": "Духи 100 мл (тестер)",
+        "volume_ml": 100,
+        "price": 16000,
+        "in_stock": true
+      }
+    ]
+  },
+  {
+    "id": "hormone-paris-this-is-not-serotonin",
+    "name": "This is not Serotonin",
+    "brand": "Hormone Paris",
+    "gender": "unisex",
+    "description": "Hormone Paris This is not Serotonin — нишевый унисекс-аромат.",
+    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Serotonin",
+    "variants": [
+      {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2810,
+        "in_stock": true
+      },
+      {
+        "id": "decant-10ml",
+        "type": "decant",
+        "label": "Отливант 10 мл",
+        "volume_ml": 10,
+        "price": 3810,
+        "in_stock": true
+      },
+      {
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
+        "volume_ml": 100,
+        "price": 15700,
+        "in_stock": true
+      },
+      {
+        "id": "tester-100ml",
+        "type": "tester",
+        "label": "Духи 100 мл (тестер)",
+        "volume_ml": 100,
+        "price": 17340,
+        "in_stock": true
+      }
+    ]
+  },
+  {
+    "id": "hormone-paris-this-is-not-testosterone",
+    "name": "This is not Testosterone",
+    "brand": "Hormone Paris",
+    "gender": "unisex",
+    "description": "Hormone Paris This is not Testosterone — нишевый унисекс-аромат.",
+    "image": "https://placehold.co/400x400/1a1a1a/eaeaea?text=This+is+not+Testosterone",
+    "variants": [
+      {
+        "id": "decant-2ml",
+        "type": "decant",
+        "label": "Отливант 2 мл",
+        "volume_ml": 2,
+        "price": 1280,
+        "in_stock": true
+      },
+      {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 3060,
+        "in_stock": true
+      },
+      {
+        "id": "decant-10ml",
+        "type": "decant",
+        "label": "Отливант 10 мл",
+        "volume_ml": 10,
+        "price": 4880,
+        "in_stock": true
+      },
+      {
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
+        "volume_ml": 100,
+        "price": 19960,
+        "in_stock": true
+      },
+      {
+        "id": "tester-100ml",
+        "type": "tester",
+        "label": "Духи 100 мл (тестер)",
+        "volume_ml": 100,
+        "price": 23160,
+        "in_stock": true
+      }
+    ]
   }
 ]

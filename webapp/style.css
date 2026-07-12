@@ -191,6 +191,25 @@ body {
   line-height: 1;
 }
 
+.variant-secondary {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--secondary-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.variant-secondary-label {
+  font-size: 12px;
+  color: var(--hint);
+}
+
+.cart-item-variant {
+  font-size: 11px;
+  color: var(--hint);
+}
+
 .overlay {
   position: fixed;
   inset: 0;

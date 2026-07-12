@@ -7,8 +7,8 @@ if (tg) {
 
 const state = {
   products: [],
-  gender: "all",
-  cart: {}, // { productId: qty }
+  tab: "all", // all | female | male | unisex | decant
+  cart: {}, // { "productId::variantId": qty }
   paymentsEnabled: false,
 };
 
@@ -40,26 +40,48 @@ function getProduct(id) {
   return state.products.find((p) => p.id === id);
 }
 
-function cartQty(id) {
-  return state.cart[id] || 0;
+function getVariant(productId, variantId) {
+  const product = getProduct(productId);
+  if (!product) return null;
+  return product.variants.find((v) => v.id === variantId) || null;
+}
+
+function cartKey(productId, variantId) {
+  return `${productId}::${variantId}`;
+}
+
+function cartQty(productId, variantId) {
+  return state.cart[cartKey(productId, variantId)] || 0;
 }
 
 function cartEntries() {
-  return Object.entries(state.cart).filter(([, qty]) => qty > 0);
+  return Object.entries(state.cart)
+    .filter(([, qty]) => qty > 0)
+    .map(([key, qty]) => {
+      const [productId, variantId] = key.split("::");
+      return {
+        productId,
+        variantId,
+        qty,
+        product: getProduct(productId),
+        variant: getVariant(productId, variantId),
+      };
+    })
+    .filter((entry) => entry.product && entry.variant);
 }
 
 function cartTotal() {
-  return cartEntries().reduce((sum, [id, qty]) => sum + getProduct(id).price * qty, 0);
+  return cartEntries().reduce((sum, entry) => sum + entry.variant.price * entry.qty, 0);
 }
 
 function cartItemsCount() {
-  return cartEntries().reduce((sum, [, qty]) => sum + qty, 0);
+  return cartEntries().reduce((sum, entry) => sum + entry.qty, 0);
 }
 
-function setQty(id, qty) {
-  state.cart[id] = Math.max(0, qty);
+function setQty(productId, variantId, qty) {
+  state.cart[cartKey(productId, variantId)] = Math.max(0, qty);
   renderCartBadge();
-  renderProductCard(id);
+  renderGrid();
   renderCart();
 }
 
@@ -69,67 +91,101 @@ function renderCartBadge() {
 
 function renderFilters() {
   filtersEl.querySelectorAll(".filter-chip").forEach((chip) => {
-    chip.classList.toggle("active", chip.dataset.gender === state.gender);
+    chip.classList.toggle("active", chip.dataset.tab === state.tab);
   });
 }
 
 function visibleProducts() {
-  if (state.gender === "all") return state.products;
-  return state.products.filter((p) => p.gender === state.gender);
+  if (state.tab === "all" || state.tab === "decant") return state.products;
+  return state.products.filter((p) => p.gender === state.tab);
 }
 
-function productCardHtml(product) {
-  const qty = cartQty(product.id);
-  const controlsHtml = !product.in_stock
-    ? `<button class="add-btn" disabled>Нет в наличии</button>`
-    : qty > 0
-    ? `<div class="qty-control" data-id="${product.id}">
+function variantControlHtml(product, variant) {
+  const qty = cartQty(product.id, variant.id);
+  if (!variant.in_stock) {
+    return `<button class="add-btn" disabled>Нет в наличии</button>`;
+  }
+  if (qty > 0) {
+    return `<div class="qty-control" data-product="${product.id}" data-variant="${variant.id}">
          <button class="qty-minus" type="button">−</button>
          <span>${qty}</span>
          <button class="qty-plus" type="button">+</button>
-       </div>`
-    : `<button class="add-btn" data-id="${product.id}" type="button">Добавить</button>`;
+       </div>`;
+  }
+  return `<button class="add-btn" data-product="${product.id}" data-variant="${variant.id}" type="button">Добавить</button>`;
+}
+
+function productCardHtml(product) {
+  const full = product.variants.find((v) => v.type === "full");
+  const tester = product.variants.find((v) => v.type === "tester");
+  if (!full) return "";
 
   return `
-    <div class="product-card" data-card-id="${product.id}">
-      ${!product.in_stock ? '<span class="out-of-stock-badge">Нет в наличии</span>' : ""}
+    <div class="product-card">
       <img src="${product.image}" alt="${product.name}" loading="lazy" />
       <div class="product-info">
         <span class="product-brand">${product.brand}</span>
         <span class="product-name">${product.name}</span>
-        <span class="product-volume">${product.volume_ml} мл</span>
+        <span class="product-volume">${full.volume_ml} мл</span>
         <div class="product-price-row">
-          <span class="product-price">${formatPrice(product.price)}</span>
-          ${product.old_price ? `<span class="product-old-price">${formatPrice(product.old_price)}</span>` : ""}
+          <span class="product-price">${formatPrice(full.price)}</span>
         </div>
-        ${controlsHtml}
+        ${variantControlHtml(product, full)}
+        ${
+          tester
+            ? `<div class="variant-secondary">
+                 <span class="variant-secondary-label">Тестер — ${formatPrice(tester.price)}</span>
+                 ${variantControlHtml(product, tester)}
+               </div>`
+            : ""
+        }
+      </div>
+    </div>
+  `;
+}
+
+function decantCardHtml(product, variant) {
+  return `
+    <div class="product-card">
+      <img src="${product.image}" alt="${product.name}" loading="lazy" />
+      <div class="product-info">
+        <span class="product-brand">${product.brand}</span>
+        <span class="product-name">${product.name}</span>
+        <span class="product-volume">${variant.label}</span>
+        <div class="product-price-row">
+          <span class="product-price">${formatPrice(variant.price)}</span>
+        </div>
+        ${variantControlHtml(product, variant)}
       </div>
     </div>
   `;
 }
 
 function renderGrid() {
+  if (state.tab === "decant") {
+    const cards = [];
+    state.products.forEach((product) => {
+      product.variants
+        .filter((v) => v.type === "decant")
+        .forEach((variant) => cards.push(decantCardHtml(product, variant)));
+    });
+    grid.innerHTML = cards.join("") || '<p class="cart-empty">Пока нет отливантов в наличии</p>';
+    return;
+  }
   grid.innerHTML = visibleProducts().map(productCardHtml).join("");
 }
 
-function renderProductCard(id) {
-  const card = grid.querySelector(`[data-card-id="${id}"]`);
-  const product = getProduct(id);
-  if (card && product) {
-    card.outerHTML = productCardHtml(product);
-  }
-}
-
-function cartItemHtml(id, qty) {
-  const product = getProduct(id);
+function cartItemHtml(entry) {
+  const { product, variant, qty } = entry;
   return `
-    <div class="cart-item" data-id="${id}">
+    <div class="cart-item">
       <img src="${product.image}" alt="${product.name}" />
       <div class="cart-item-info">
-        <div class="cart-item-name">${product.name}</div>
-        <div class="cart-item-price">${formatPrice(product.price)} × ${qty}</div>
+        <div class="cart-item-name">${product.brand} ${product.name}</div>
+        <div class="cart-item-variant">${variant.label}</div>
+        <div class="cart-item-price">${formatPrice(variant.price)} × ${qty}</div>
       </div>
-      <div class="qty-control" data-id="${id}">
+      <div class="qty-control" data-product="${product.id}" data-variant="${variant.id}">
         <button class="qty-minus" type="button">−</button>
         <span>${qty}</span>
         <button class="qty-plus" type="button">+</button>
@@ -141,38 +197,38 @@ function cartItemHtml(id, qty) {
 function renderCart() {
   const entries = cartEntries();
   cartItemsEl.innerHTML = entries.length
-    ? entries.map(([id, qty]) => cartItemHtml(id, qty)).join("")
+    ? entries.map(cartItemHtml).join("")
     : '<div class="cart-empty">Корзина пуста</div>';
   cartTotalEl.textContent = formatPrice(cartTotal());
   checkoutBtn.disabled = entries.length === 0;
 }
 
 grid.addEventListener("click", (event) => {
-  const addBtn = event.target.closest(".add-btn[data-id]");
+  const addBtn = event.target.closest(".add-btn[data-product]");
   if (addBtn) {
-    setQty(addBtn.dataset.id, cartQty(addBtn.dataset.id) + 1);
+    setQty(addBtn.dataset.product, addBtn.dataset.variant, cartQty(addBtn.dataset.product, addBtn.dataset.variant) + 1);
     return;
   }
   const qtyControl = event.target.closest(".qty-control");
   if (qtyControl) {
-    const id = qtyControl.dataset.id;
-    if (event.target.closest(".qty-plus")) setQty(id, cartQty(id) + 1);
-    if (event.target.closest(".qty-minus")) setQty(id, cartQty(id) - 1);
+    const { product, variant } = qtyControl.dataset;
+    if (event.target.closest(".qty-plus")) setQty(product, variant, cartQty(product, variant) + 1);
+    if (event.target.closest(".qty-minus")) setQty(product, variant, cartQty(product, variant) - 1);
   }
 });
 
 cartItemsEl.addEventListener("click", (event) => {
   const qtyControl = event.target.closest(".qty-control");
   if (!qtyControl) return;
-  const id = qtyControl.dataset.id;
-  if (event.target.closest(".qty-plus")) setQty(id, cartQty(id) + 1);
-  if (event.target.closest(".qty-minus")) setQty(id, cartQty(id) - 1);
+  const { product, variant } = qtyControl.dataset;
+  if (event.target.closest(".qty-plus")) setQty(product, variant, cartQty(product, variant) + 1);
+  if (event.target.closest(".qty-minus")) setQty(product, variant, cartQty(product, variant) - 1);
 });
 
 filtersEl.addEventListener("click", (event) => {
   const chip = event.target.closest(".filter-chip");
   if (!chip) return;
-  state.gender = chip.dataset.gender;
+  state.tab = chip.dataset.tab;
   renderFilters();
   renderGrid();
 });
@@ -196,7 +252,7 @@ function clearCartAndClose() {
 }
 
 async function submitOrder(extraPayload) {
-  const items = cartEntries().map(([id, qty]) => ({ id, qty }));
+  const items = cartEntries().map((entry) => ({ id: entry.productId, variant: entry.variantId, qty: entry.qty }));
   const response = await fetch("/api/checkout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

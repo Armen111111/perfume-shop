@@ -30,3 +30,13 @@ def get_product(product_id: str) -> Optional[dict]:
         if product["id"] == product_id:
             return product
     return None
+
+
+def get_variant(product_id: str, variant_id: str) -> Optional[dict]:
+    product = get_product(product_id)
+    if product is None:
+        return None
+    for variant in product.get("variants", []):
+        if variant["id"] == variant_id:
+            return variant
+    return None

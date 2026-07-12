@@ -45,24 +45,34 @@ def _build_order_lines(cart: list[dict]) -> tuple[list[dict], list[LabeledPrice]
     total = 0
 
     for entry in cart:
-        product = catalog.get_product(str(entry.get("id", "")))
+        product_id = str(entry.get("id", ""))
+        variant_id = str(entry.get("variant", ""))
+        product = catalog.get_product(product_id)
+        variant = catalog.get_variant(product_id, variant_id)
         try:
             qty = int(entry.get("qty", 0))
         except (TypeError, ValueError):
             qty = 0
 
-        if product is None or qty <= 0:
-            return web.json_response({"error": "invalid_item", "id": entry.get("id")}, status=400)
-        if not product.get("in_stock", False):
-            return web.json_response({"error": "out_of_stock", "id": product["id"]}, status=400)
+        if product is None or variant is None or qty <= 0:
+            return web.json_response({"error": "invalid_item", "id": product_id}, status=400)
+        if not variant.get("in_stock", False):
+            return web.json_response({"error": "out_of_stock", "id": product_id}, status=400)
 
-        line_total = product["price"] * qty
+        line_total = variant["price"] * qty
         total += line_total
+        item_name = f"{product['brand']} {product['name']} — {variant['label']}"
         order_items.append(
-            {"id": product["id"], "name": product["name"], "qty": qty, "price": product["price"]}
+            {
+                "id": product["id"],
+                "variant": variant["id"],
+                "name": item_name,
+                "qty": qty,
+                "price": variant["price"],
+            }
         )
         # Telegram Payments ожидает сумму в минимальных единицах валюты (копейки для RUB)
-        prices.append(LabeledPrice(label=f"{product['name']} x{qty}", amount=line_total * 100))
+        prices.append(LabeledPrice(label=f"{item_name} x{qty}", amount=line_total * 100))
 
     return order_items, prices, total
 
