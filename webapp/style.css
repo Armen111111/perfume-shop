@@ -19,6 +19,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background: var(--bg);
@@ -240,8 +244,16 @@ h3 {
   letter-spacing: 0.5px;
 }
 
+.hero-logo {
+  position: relative;
+  display: block;
+  width: min(220px, 62%);
+  margin: 0 auto;
+}
+
 .hero-subtitle {
-  margin-top: 8px;
+  position: relative;
+  margin-top: 12px;
   font-size: 13px;
   color: var(--muted);
   line-height: 1.5;
@@ -365,6 +377,23 @@ h3 {
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   padding: 0 16px 16px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.product-grid.grid-leaving {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.product-grid.grid-entering {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-grid {
+    transition: none;
+  }
 }
 
 .product-card {

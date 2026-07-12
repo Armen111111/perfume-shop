@@ -273,12 +273,25 @@ cartItemsEl.addEventListener("click", (event) => {
   if (event.target.closest(".qty-minus")) setQty(product, variant, cartQty(product, variant) - 1);
 });
 
+function renderGridAnimated() {
+  grid.classList.add("grid-leaving");
+  window.setTimeout(() => {
+    renderGrid();
+    grid.classList.remove("grid-leaving");
+    grid.classList.add("grid-entering");
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => grid.classList.remove("grid-entering"));
+    });
+  }, 200);
+}
+
 filtersEl.addEventListener("click", (event) => {
   const chip = event.target.closest(".filter-chip");
   if (!chip) return;
+  if (chip.dataset.tab === state.tab) return;
   state.tab = chip.dataset.tab;
   renderFilters();
-  renderGrid();
+  renderGridAnimated();
 });
 
 cartBtn.addEventListener("click", () => {
