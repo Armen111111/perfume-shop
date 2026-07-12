@@ -108,31 +108,24 @@ function visibleProducts() {
   return state.products.filter((p) => p.gender === state.tab);
 }
 
-function variantControlHtml(product, variant, compact = false) {
+function variantControlHtml(product, variant) {
   const qty = cartQty(product.id, variant.id);
-  const addClass = compact ? "add-btn-compact" : "add-btn";
-  const qtyClass = compact ? "qty-control qty-control-compact" : "qty-control";
 
   if (!variant.in_stock) {
-    return compact
-      ? `<span class="variant-oos">нет в наличии</span>`
-      : `<button class="add-btn" disabled>Нет в наличии</button>`;
+    return `<button class="add-btn" disabled>Нет в наличии</button>`;
   }
   if (qty > 0) {
-    return `<div class="${qtyClass}" data-product="${product.id}" data-variant="${variant.id}">
+    return `<div class="qty-control" data-product="${product.id}" data-variant="${variant.id}">
          <button class="qty-minus" type="button">−</button>
          <span>${qty}</span>
          <button class="qty-plus" type="button">+</button>
        </div>`;
   }
-  return `<button class="${addClass}" data-product="${product.id}" data-variant="${variant.id}" type="button">${
-    compact ? "+" : "Добавить"
-  }</button>`;
+  return `<button class="add-btn" data-product="${product.id}" data-variant="${variant.id}" type="button">Добавить</button>`;
 }
 
 function productCardHtml(product) {
   const full = product.variants.find((v) => v.type === "full");
-  const tester = product.variants.find((v) => v.type === "tester");
   if (!full) return "";
 
   const badge = product.is_hit ? "🏆 Хит" : product.is_new ? "🆕 Новинка" : "";
@@ -150,14 +143,6 @@ function productCardHtml(product) {
           <span class="product-price">${formatPrice(full.price)}</span>
         </div>
         ${variantControlHtml(product, full)}
-        ${
-          tester
-            ? `<div class="variant-secondary">
-                 <span class="variant-secondary-label">Тестер — ${formatPrice(tester.price)}</span>
-                 ${variantControlHtml(product, tester, true)}
-               </div>`
-            : ""
-        }
       </div>
     </div>
   `;
