@@ -17,12 +17,17 @@ def create_app(bot: Bot, config: Config) -> web.Application:
     app["bot"] = bot
     app["config"] = config
 
+    app.router.add_get("/", handle_index)
     app.router.add_get("/api/config", handle_get_config)
     app.router.add_get("/api/products", handle_get_products)
     app.router.add_post("/api/checkout", handle_checkout)
-    app.router.add_static("/", WEBAPP_DIR, show_index=True)
+    app.router.add_static("/", WEBAPP_DIR, show_index=False)
 
     return app
+
+
+async def handle_index(request: web.Request) -> web.Response:
+    return web.FileResponse(WEBAPP_DIR / "index.html")
 
 
 async def handle_get_config(request: web.Request) -> web.Response:
