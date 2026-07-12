@@ -202,8 +202,7 @@ async def handle_checkout(request: web.Request) -> web.Response:
     await bot.send_message(
         user_id,
         "✅ Заказ принят!\n\n"
-        f"Номер заказа: №{order_id}\n"
-        "Ожидайте — менеджер свяжется с вами в этом чате в течение 10–20 минут, чтобы подтвердить заказ и способ оплаты.",
+        "Ожидайте — менеджер свяжется с вами в этом чате, чтобы подтвердить заказ и способ оплаты.",
     )
 
     return web.json_response({"mode": "manual", "order_id": order_id, "total": total, "currency": config.currency})
