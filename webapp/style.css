@@ -1,15 +1,15 @@
 :root {
   /* фирменная палитра: кобальтовый синий + жжёная охра.
      Бренд намеренно не подстраивается под тему Telegram — это фирменный вид бутика. */
-  --bg: #081422;
-  --bg-elevated: #123354;
-  --graphite: #1e4b7a;
-  --line: rgba(30, 75, 122, 0.4);
-  --line-strong: rgba(30, 75, 122, 0.65);
-  --glass: rgba(30, 75, 122, 0.16);
-  --glass-strong: rgba(30, 75, 122, 0.28);
+  --bg: #1e4b7a;
+  --bg-elevated: #16395e;
+  --graphite: #14324f;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.24);
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(255, 255, 255, 0.1);
   --text: #f6f2ec;
-  --muted: #9fb4cc;
+  --muted: #b7c9de;
   --silver: #dfe8f2;
   --accent: #b45309;
   --accent-light: #e08a34;
@@ -151,7 +151,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 18px 16px;
-  background: rgba(8, 20, 34, 0.7);
+  background: rgba(20, 50, 79, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   position: sticky;
@@ -556,7 +556,7 @@ h3 {
   position: absolute;
   top: 8px;
   left: 8px;
-  background: rgba(8, 20, 34, 0.8);
+  background: rgba(20, 50, 79, 0.9);
   border: 1px solid var(--line-strong);
   color: var(--silver);
   font-size: 10px;
@@ -924,7 +924,7 @@ h3 {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(8, 20, 34, 0.95);
+  background: rgba(20, 50, 79, 0.97);
   color: #fff;
   padding: 9px 18px;
   border-radius: 10px;
