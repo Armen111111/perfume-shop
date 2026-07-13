@@ -1,18 +1,20 @@
 :root {
-  /* премиальная палитра: синий графит + серебро — без золота.
+  /* фирменная палитра: кобальтовый синий + жжёная охра.
      Бренд намеренно не подстраивается под тему Telegram — это фирменный вид бутика. */
-  --bg: #0a0e19;
-  --bg-elevated: #121b2c;
-  --graphite: #1b2537;
-  --line: rgba(160, 180, 215, 0.12);
-  --line-strong: rgba(160, 180, 215, 0.22);
-  --glass: rgba(140, 165, 210, 0.055);
-  --glass-strong: rgba(140, 165, 210, 0.1);
-  --text: #eef1f7;
-  --muted: #8d97ac;
-  --silver: #c9d1e3;
-  --accent-grad: linear-gradient(135deg, #e9edf5, #a7b0c4);
-  --on-accent: #0a0e19;
+  --bg: #081422;
+  --bg-elevated: #123354;
+  --graphite: #1e4b7a;
+  --line: rgba(30, 75, 122, 0.4);
+  --line-strong: rgba(30, 75, 122, 0.65);
+  --glass: rgba(30, 75, 122, 0.16);
+  --glass-strong: rgba(30, 75, 122, 0.28);
+  --text: #f6f2ec;
+  --muted: #9fb4cc;
+  --silver: #dfe8f2;
+  --accent: #b45309;
+  --accent-light: #e08a34;
+  --accent-grad: linear-gradient(135deg, #e08a34, #b45309);
+  --on-accent: #fff8f0;
 }
 
 * {
@@ -99,7 +101,7 @@ h3 {
   height: 280px;
   top: -60px;
   left: -60px;
-  background: radial-gradient(circle, #dce6f7, transparent 70%);
+  background: radial-gradient(circle, #e08a34, transparent 70%);
   animation-duration: 24s;
 }
 
@@ -108,7 +110,7 @@ h3 {
   height: 340px;
   top: 26%;
   right: -110px;
-  background: radial-gradient(circle, #6f82a8, transparent 70%);
+  background: radial-gradient(circle, #2f6fa8, transparent 70%);
   animation-duration: 30s;
   animation-delay: -8s;
 }
@@ -118,7 +120,7 @@ h3 {
   height: 300px;
   bottom: -90px;
   left: 12%;
-  background: radial-gradient(circle, #35405c, transparent 70%);
+  background: radial-gradient(circle, #b45309, transparent 70%);
   animation-duration: 34s;
   animation-delay: -15s;
 }
@@ -149,7 +151,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 18px 16px;
-  background: rgba(10, 10, 11, 0.7);
+  background: rgba(8, 20, 34, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   position: sticky;
@@ -230,7 +232,7 @@ h3 {
   height: 260px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 70%);
+  background: radial-gradient(circle, rgba(224, 138, 52, 0.28), transparent 70%);
   filter: blur(20px);
   animation: hero-breathe 6s ease-in-out infinite;
   pointer-events: none;
@@ -554,7 +556,7 @@ h3 {
   position: absolute;
   top: 8px;
   left: 8px;
-  background: rgba(10, 10, 11, 0.75);
+  background: rgba(8, 20, 34, 0.8);
   border: 1px solid var(--line-strong);
   color: var(--silver);
   font-size: 10px;
@@ -922,12 +924,12 @@ h3 {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(10, 10, 10, 0.92);
+  background: rgba(8, 20, 34, 0.95);
   color: #fff;
   padding: 9px 18px;
   border-radius: 10px;
   font-size: 13px;
-  border-left: 3px solid var(--silver);
+  border-left: 3px solid var(--accent);
   z-index: 200;
 }
 
