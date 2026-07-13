@@ -10,14 +10,6 @@
     "image": "images/gaba.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1960,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -53,14 +45,6 @@
     "description": "«Виновник эйфории»: розовый перец, чёрная смородина и шафран на старте, ваниль и жасмин в сердце — лёгкость и всплеск радости.",
     "image": "images/endorphin.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1830,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -98,14 +82,6 @@
     "image": "images/dopamine.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 2250,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -141,14 +117,6 @@
     "description": "Пульсирующая композиция: пряная малина и роза на старте, шафран и герань в сердце, уд, пачули и ваниль в базе — фокус и внутренняя энергия.",
     "image": "images/adrenaline.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1830,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -186,14 +154,6 @@
     "image": "images/kisspeptin.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1940,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -229,14 +189,6 @@
     "description": "Тёплая, обволакивающая композиция близости: бергамот и малина на старте, ирис, жасмин и карамель в сердце, мускус и амбра в базе.",
     "image": "images/oxytocin.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1830,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -274,14 +226,6 @@
     "image": "images/serotonin.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 2250,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -317,22 +261,6 @@
     "description": "Аромат силы и притяжения: грейпфрут, кардамон и корица на старте, гваяковое дерево, ваниль и жасмин в сердце, сандал и мускус в базе.",
     "image": "images/testosterone.jpg",
     "variants": [
-      {
-        "id": "decant-2ml",
-        "type": "decant",
-        "label": "Отливант 2 мл",
-        "volume_ml": 2,
-        "price": 1020,
-        "in_stock": true
-      },
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 2450,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -370,14 +298,6 @@
     "image": "images/escentric-molecules-escentric-02.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -405,14 +325,6 @@
     "description": "Однонотный аромат, полностью построенный на амброксане — чистый, слегка солёный, «кожный» запах с пудрово-древесным, амбровым шлейфом, который раскрывается индивидуально в зависимости от химии кожи.",
     "image": "images/escentric-molecules-molecule-02.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 990,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -442,14 +354,6 @@
     "image": "images/ex-nihilo-fleur-narcotique.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -477,14 +381,6 @@
     "description": "Древесно-пряный аромат на основе Iso E Super — верхние ноты Iso E Super и розового перца, сердце ириса, база лайма; более многогранная версия Molecule 01.",
     "image": "images/escentric-molecules-escentric-01.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 950,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -514,14 +410,6 @@
     "image": "images/escentric-molecules-molecule-01.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1090,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -549,14 +437,6 @@
     "description": "Верхние ноты — свежий бергамот Калабрии и ананасовый аккорд; сердце — розовый перец и жасмин; база — дымная берёза. Бренд описывает Aventus как «смелый, уверенный и неподвластный времени».",
     "image": "images/creed-aventus.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 2610,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -586,14 +466,6 @@
     "image": "images/byredo-parfums-bal-d-afrique.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 580,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -621,14 +493,6 @@
     "description": "Цветочно-древесно-мускусный аромат: верхняя нота — белый перец, сердце — гардения и сандал, база — белый мускус. Бренд называет его «одним из самых чувственных ароматов в истории».",
     "image": "images/attar-collection-musk-kashmir.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1350,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -658,14 +522,6 @@
     "image": "images/nasomatto-black-afgano.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1710,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -693,14 +549,6 @@
     "description": "Верхние ноты — маракуйя, персик, груша, малина, чёрная смородина и тёплый песок; сердце — ландыш; база — гелиотроп, сандал, ваниль, пачули и мускус. Посвящён богине Цирцее.",
     "image": "images/tiziana-terenzi-kirke.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 890,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -730,14 +578,6 @@
     "image": "images/marc-antoine-barrois-ganymede.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1410,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -765,14 +605,6 @@
     "description": "Цветочно-фруктово-гурманский аромат с нотами шампанского, абрикоса, чёрной бузины и чёрной орхидеи в верхней части и взбитыми сливками, красным деревом и махагони в базе.",
     "image": "images/zarkoperfume-pink-molecule-09009.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 860,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -802,14 +634,6 @@
     "image": "images/tom-ford-tobacco-vanille.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 2220,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -837,14 +661,6 @@
     "description": "Древесно-цветочно-мускусный аромат для мужчин: яблоко, бергамот и дубовый мох в начале, ананас, пачули и жасмин в сердце, мускус, амбра и берёза в базе.",
     "image": "images/afnan-perfumes-supremacy-silver.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -874,14 +690,6 @@
     "image": "images/versace-man-eau-fraiche.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -909,14 +717,6 @@
     "description": "Гурманский аромат вокруг ноты вишни: горький миндаль, чёрная вишня и вишнёвый ликёр на старте, терпкая вишня, слива и турецкая роза в сердце, тонка, ваниль, сандал и пачули в базе.",
     "image": "images/tom-ford-lost-cherry.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 2520,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -946,14 +746,6 @@
     "image": "images/attar-collection-azora.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 980,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -981,14 +773,6 @@
     "description": "Цитрусово-древесный унисекс-аромат: открывается цитрусовыми нотами, чёрной смородиной и специями, сердце из жасмина и листьев пачули, база — древесные, ванильные, кожаные и мускусные ноты.",
     "image": "images/mancera-cedrat-boise.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1018,14 +802,6 @@
     "image": "images/shaik-perfume-opulent-shaik-classic-77.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 2030,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1053,14 +829,6 @@
     "description": "Гурманско-восточный аромат линии The Cellars: открывается тёмным ромом со сладким гурманским аккордом, смягчённым ванилью и сушёными фруктами, база — пряный пачули и кедровое дерево.",
     "image": "images/kilian-straight-to-heaven-white-cristal.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1090,14 +858,6 @@
     "image": "images/montale-aoud-forest.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1125,14 +885,6 @@
     "description": "Древесно-ароматический мужской аромат, посвящённый вечеру: свежие древесные ноты кипариса на старте, бурбонский и гаитянский ветивер в сердце, база — кашемировое дерево и мускус.",
     "image": "images/lalique-encre-noire-pour-homme.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1162,14 +914,6 @@
     "image": "images/hermes-terre-d-hermes.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1197,14 +941,6 @@
     "description": "Древесно-пряный унисекс-аромат: свежесорванный тайский базилик и перец тимут с грейпфрутовыми фасетками сочетаются с гаитянским ветивером и древесной молекулой Georgywood.",
     "image": "images/essential-parfums-bois-imperial.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1234,14 +970,6 @@
     "image": "images/montale-red-vetiver.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1269,14 +997,6 @@
     "description": "Молекулярный аромат на основе синтетической молекулы Iso E Super в сочетании с ирисом — древесно-кедровая, бархатистая нота.",
     "image": "images/escentric-molecules-molecule-01-m-iris.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1306,14 +1026,6 @@
     "image": "images/le-labo-santal-33.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1341,14 +1053,6 @@
     "description": "Свежий унисекс-аромат, вдохновлённый швейцарскими Альпами: верхние ноты бергамота и мандарина, сердце зелёного чая и чёрной смородины, база из мускуса и сандала.",
     "image": "images/creed-silver-mountain-water.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 2570,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1378,14 +1082,6 @@
     "image": "images/escentric-molecules-molecule-01-m-mandarin.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 860,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1413,14 +1109,6 @@
     "description": "Древесно-фруктовый аромат: бергамот, мандариновый лист и лайм соединяются с зелёным аккордом фиалковых листьев на базе ветивера и майсорского сандала.",
     "image": "images/montale-boise-fruite.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1450,14 +1138,6 @@
     "image": "images/attar-collection-hayati.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 1080,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1485,14 +1165,6 @@
     "description": "Унисекс-аромат из линии The Narcotics: персик, чёрная смородина, кокос и слива на старте; корица, герань, роза и амбретта в сердце; ветивер, сандал, дубовый мох и ваниль в базе.",
     "image": "images/kilian-liaisons-dangereuses-typical-me.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1522,14 +1194,6 @@
     "image": "images/escentric-molecules-escentric-03.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 840,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1557,14 +1221,6 @@
     "description": "Аромат из коллекции Luna, шипрово-цветочный: маракуйя, кассис, лимон и папоротник на старте; гвоздика, ландыш и чайная роза в сердце; сандал, тонка и мускус в базе.",
     "image": "images/tiziana-terenzi-cassiopea.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1594,14 +1250,6 @@
     "image": "images/clinique-happy-for-men.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1629,14 +1277,6 @@
     "description": "Древесно-ароматический мужской аромат: бергамот, мускатный шалфей, апельсин и лимон на старте, жасмин и ландыш в сердце, кедр, мускус, ветивер, сандал и пачули в базе.",
     "image": "images/shaik-perfume-chic-shaik-70.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 2290,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1666,14 +1306,6 @@
     "image": "images/le-labo-another-13.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 3620,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1701,14 +1333,6 @@
     "description": "Аромат вдохновлён образом пиратского корабля: ромовый аккорд с Мартиники и крепкий кофе в сочетании с ветивером, тростниковый сахар и тёмное сливочное сандаловое дерево.",
     "image": "images/kilian-black-phantom.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 500,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",
@@ -1738,14 +1362,6 @@
     "image": "images/zarkoperfume-molecule-23438.jpg",
     "variants": [
       {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 730,
-        "in_stock": true
-      },
-      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -1773,14 +1389,6 @@
     "description": "Пряный восточный аромат для мужчин с харизматичным сочетанием нот базилика, лавра/лаванды и сандалового дерева, раскрывающийся через табачные ноты.",
     "image": "images/dolce-gabbana-the-one-for-men-edt.jpg",
     "variants": [
-      {
-        "id": "decant-5ml",
-        "type": "decant",
-        "label": "Отливант 5 мл",
-        "volume_ml": 5,
-        "price": 560,
-        "in_stock": true
-      },
       {
         "id": "decant-10ml",
         "type": "decant",

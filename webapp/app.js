@@ -7,7 +7,7 @@ if (tg) {
 
 const state = {
   products: [],
-  tab: "all", // all | hit | new | female | male | unisex | decant
+  tab: "all", // all | hit | new | female | male | unisex
   brand: "all", // "all" | точное название бренда
   cart: {}, // { "productId::variantId": qty }
   paymentsEnabled: false,
@@ -35,6 +35,9 @@ const promoApplyBtn = document.getElementById("promo-apply-btn");
 const promoStatusEl = document.getElementById("promo-status");
 const cartDiscountRow = document.getElementById("cart-discount-row");
 const cartDiscountEl = document.getElementById("cart-discount");
+const productOverlay = document.getElementById("product-overlay");
+const productDetailBody = document.getElementById("product-detail-body");
+const closeProductBtn = document.getElementById("close-product");
 
 function formatPrice(value) {
   return `${value.toLocaleString("ru-RU")} ₽`;
@@ -91,8 +94,10 @@ function cartItemsCount() {
 function setQty(productId, variantId, qty) {
   state.cart[cartKey(productId, variantId)] = Math.max(0, qty);
   renderCartBadge();
-  renderGrid();
   renderCart();
+  if (!productOverlay.classList.contains("hidden") && productOverlay.dataset.productId === productId) {
+    renderProductDetail(productId);
+  }
 }
 
 function renderCartBadge() {
@@ -119,7 +124,7 @@ function visibleProducts() {
   let list = state.products;
   if (state.tab === "hit") list = list.filter((p) => p.is_hit);
   else if (state.tab === "new") list = list.filter((p) => p.is_new);
-  else if (state.tab !== "all" && state.tab !== "decant") list = list.filter((p) => p.gender === state.tab);
+  else if (state.tab !== "all") list = list.filter((p) => p.gender === state.tab);
   return list.filter(matchesBrand).filter(matchesSearch);
 }
 
@@ -161,62 +166,69 @@ function variantControlHtml(product, variant) {
   return `<button class="add-btn" data-product="${product.id}" data-variant="${variant.id}" type="button">Добавить</button>`;
 }
 
+function cheapestVariant(product) {
+  return product.variants.slice().sort((a, b) => a.price - b.price)[0];
+}
+
 function productCardHtml(product) {
-  const full = product.variants.find((v) => v.type === "full");
-  if (!full) return "";
+  const cheapest = cheapestVariant(product);
+  if (!cheapest) return "";
 
   const badge = product.is_hit ? "🏆 Хит" : product.is_new ? "🆕 Новинка" : "";
 
   return `
-    <div class="product-card">
+    <div class="product-card" data-product-id="${product.id}">
       ${badge ? `<span class="product-badge">${badge}</span>` : ""}
       <img src="${product.image}" alt="${product.name}" loading="lazy" />
       <div class="product-info">
         <span class="product-brand">${product.brand}</span>
         <span class="product-name">${product.name}</span>
-        <span class="product-volume">${full.volume_ml} мл</span>
+        <span class="product-volume">от ${cheapest.volume_ml} мл</span>
         ${product.description ? `<p class="product-description">${product.description}</p>` : ""}
         <div class="product-price-row">
-          <span class="product-price">Узнать стоимость</span>
+          <span class="product-price">от ${formatPrice(cheapest.price)}</span>
         </div>
-        ${variantControlHtml(product, full)}
-      </div>
-    </div>
-  `;
-}
-
-function decantCardHtml(product, variant) {
-  return `
-    <div class="product-card">
-      <img src="${product.image}" alt="${product.name}" loading="lazy" />
-      <div class="product-info">
-        <span class="product-brand">${product.brand}</span>
-        <span class="product-name">${product.name}</span>
-        <span class="product-volume">${variant.label}</span>
-        <div class="product-price-row">
-          <span class="product-price">Узнать стоимость</span>
-        </div>
-        ${variantControlHtml(product, variant)}
       </div>
     </div>
   `;
 }
 
 function renderGrid() {
-  if (state.tab === "decant") {
-    const cards = [];
-    state.products.filter(matchesBrand).filter(matchesSearch).forEach((product) => {
-      product.variants
-        .filter((v) => v.type === "decant")
-        .forEach((variant) => cards.push(decantCardHtml(product, variant)));
-    });
-    grid.innerHTML = cards.join("") || '<p class="cart-empty">Ничего не найдено</p>';
-    return;
-  }
   const products = visibleProducts();
   grid.innerHTML = products.length
     ? products.map(productCardHtml).join("")
     : '<p class="cart-empty">Ничего не найдено</p>';
+}
+
+function variantRowHtml(product, variant) {
+  return `
+    <div class="detail-variant-row">
+      <div class="detail-variant-label">${variant.label}</div>
+      <div class="detail-variant-price">${formatPrice(variant.price)}</div>
+      ${variantControlHtml(product, variant)}
+    </div>
+  `;
+}
+
+function renderProductDetail(productId) {
+  const product = getProduct(productId);
+  if (!product) return;
+
+  const rows = product.variants.map((v) => variantRowHtml(product, v)).join("");
+
+  productDetailBody.innerHTML = `
+    <img src="${product.image}" alt="${product.name}" class="product-detail-image" />
+    <span class="product-brand">${product.brand}</span>
+    <h3 class="product-detail-name">${product.name}</h3>
+    ${product.description ? `<p class="product-detail-description">${product.description}</p>` : ""}
+    <div class="detail-variants">${rows}</div>
+  `;
+}
+
+function openProductDetail(productId) {
+  renderProductDetail(productId);
+  productOverlay.dataset.productId = productId;
+  productOverlay.classList.remove("hidden");
 }
 
 function cartItemHtml(entry) {
@@ -292,6 +304,12 @@ promoApplyBtn.addEventListener("click", async () => {
 });
 
 grid.addEventListener("click", (event) => {
+  const card = event.target.closest(".product-card[data-product-id]");
+  if (!card) return;
+  openProductDetail(card.dataset.productId);
+});
+
+productDetailBody.addEventListener("click", (event) => {
   const addBtn = event.target.closest(".add-btn[data-product]");
   if (addBtn) {
     setQty(addBtn.dataset.product, addBtn.dataset.variant, cartQty(addBtn.dataset.product, addBtn.dataset.variant) + 1);
@@ -303,6 +321,10 @@ grid.addEventListener("click", (event) => {
     if (event.target.closest(".qty-plus")) setQty(product, variant, cartQty(product, variant) + 1);
     if (event.target.closest(".qty-minus")) setQty(product, variant, cartQty(product, variant) - 1);
   }
+});
+
+closeProductBtn.addEventListener("click", () => {
+  productOverlay.classList.add("hidden");
 });
 
 cartItemsEl.addEventListener("click", (event) => {

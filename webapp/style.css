@@ -539,6 +539,7 @@ h3 {
   transition: transform 0.15s ease;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
 }
 
 .product-card:active {
@@ -614,9 +615,85 @@ h3 {
 }
 
 .product-price {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--text);
+}
+
+/* ---------- детальный просмотр товара ---------- */
+
+.product-sheet {
+  max-height: 86vh;
+}
+
+.product-detail-body {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-detail-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  background: var(--graphite);
+}
+
+.product-detail-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.product-detail-description {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+.detail-variants {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.detail-variant-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--glass);
+}
+
+.detail-variant-label {
+  font-size: 13px;
+  color: var(--text);
+  flex: 1;
+}
+
+.detail-variant-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.detail-variant-row .add-btn {
+  flex-shrink: 0;
+  margin-top: 0;
+  padding: 8px 16px;
+}
+
+.detail-variant-row .qty-control {
+  flex-shrink: 0;
+  margin-top: 0;
 }
 
 .product-old-price {
