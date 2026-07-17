@@ -206,14 +206,59 @@ function moodTagsFor(product) {
 
 /* ---------- hero: флакон дня ---------- */
 
+function cutoutWhiteBackground(source, maxSize = 700) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      const scale = Math.min(1, maxSize / Math.max(img.naturalWidth, img.naturalHeight));
+      const w = Math.round(img.naturalWidth * scale);
+      const h = Math.round(img.naturalHeight * scale);
+      const canvas = document.createElement("canvas");
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, w, h);
+      try {
+        const data = ctx.getImageData(0, 0, w, h);
+        const px = data.data;
+        const softStart = 16;
+        const hardEnd = 62;
+        for (let i = 0; i < px.length; i += 4) {
+          const r = px[i], g = px[i + 1], b = px[i + 2];
+          const dist = Math.sqrt((255 - r) ** 2 + (255 - g) ** 2 + (255 - b) ** 2);
+          if (dist <= softStart) {
+            px[i + 3] = 0;
+          } else if (dist < hardEnd) {
+            px[i + 3] = Math.round(((dist - softStart) / (hardEnd - softStart)) * 255);
+          }
+        }
+        ctx.putImageData(data, 0, 0);
+        resolve(canvas.toDataURL("image/png"));
+      } catch (err) {
+        resolve(source);
+      }
+    };
+    img.onerror = () => reject(new Error("image_load_failed"));
+    img.src = source;
+  });
+}
+
 function renderHeroBottle() {
   if (!heroBottleImg || !state.products.length) return;
   const featured =
     state.products.find((p) => p.is_hit) || state.products[Math.floor(Math.random() * state.products.length)];
   if (!featured) return;
   heroBottleImg.alt = featured.name;
-  heroBottleImg.addEventListener("load", () => heroBottleImg.classList.add("loaded"), { once: true });
-  heroBottleImg.src = featured.image;
+  cutoutWhiteBackground(featured.image)
+    .then((dataUrl) => {
+      heroBottleImg.addEventListener("load", () => heroBottleImg.classList.add("loaded"), { once: true });
+      heroBottleImg.src = dataUrl;
+    })
+    .catch(() => {
+      heroBottleImg.addEventListener("load", () => heroBottleImg.classList.add("loaded"), { once: true });
+      heroBottleImg.src = featured.image;
+    });
 }
 
 /* ---------- подборки: Новинки / Бестселлеры ---------- */

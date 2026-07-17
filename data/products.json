@@ -10,6 +10,14 @@
     "image": "images/gaba.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1930,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -18,19 +26,19 @@
         "in_stock": true
       },
       {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 8220,
+        "in_stock": true
+      },
+      {
         "id": "full-100ml",
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
         "price": 13260,
-        "in_stock": true
-      },
-      {
-        "id": "tester-100ml",
-        "type": "tester",
-        "label": "Духи 100 мл (тестер)",
-        "volume_ml": 100,
-        "price": 14210,
         "in_stock": true
       }
     ]
@@ -46,6 +54,14 @@
     "image": "images/endorphin.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1620,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -54,17 +70,17 @@
         "in_stock": true
       },
       {
-        "id": "full-100ml",
+        "id": "full-50ml",
         "type": "full",
-        "label": "Духи 100 мл",
-        "volume_ml": 100,
-        "price": 13270,
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 8230,
         "in_stock": true
       },
       {
-        "id": "tester-100ml",
-        "type": "tester",
-        "label": "Духи 100 мл (тестер)",
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
         "volume_ml": 100,
         "price": 13270,
         "in_stock": true
@@ -82,6 +98,14 @@
     "image": "images/dopamine.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1570,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -90,19 +114,19 @@
         "in_stock": true
       },
       {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 6890,
+        "in_stock": true
+      },
+      {
         "id": "full-100ml",
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
         "price": 11120,
-        "in_stock": true
-      },
-      {
-        "id": "tester-100ml",
-        "type": "tester",
-        "label": "Духи 100 мл (тестер)",
-        "volume_ml": 100,
-        "price": 12180,
         "in_stock": true
       }
     ]
@@ -118,6 +142,14 @@
     "image": "images/adrenaline.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1570,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -126,19 +158,19 @@
         "in_stock": true
       },
       {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 7640,
+        "in_stock": true
+      },
+      {
         "id": "full-100ml",
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
         "price": 12320,
-        "in_stock": true
-      },
-      {
-        "id": "tester-100ml",
-        "type": "tester",
-        "label": "Духи 100 мл (тестер)",
-        "volume_ml": 100,
-        "price": 12800,
         "in_stock": true
       }
     ]
@@ -154,6 +186,14 @@
     "image": "images/kisspeptin.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1570,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -162,19 +202,19 @@
         "in_stock": true
       },
       {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 6080,
+        "in_stock": true
+      },
+      {
         "id": "full-100ml",
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
         "price": 9800,
-        "in_stock": true
-      },
-      {
-        "id": "tester-100ml",
-        "type": "tester",
-        "label": "Духи 100 мл (тестер)",
-        "volume_ml": 100,
-        "price": 10280,
         "in_stock": true
       }
     ]
@@ -190,6 +230,14 @@
     "image": "images/oxytocin.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1670,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -198,17 +246,17 @@
         "in_stock": true
       },
       {
-        "id": "full-100ml",
+        "id": "full-50ml",
         "type": "full",
-        "label": "Духи 100 мл",
-        "volume_ml": 100,
-        "price": 12800,
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 7940,
         "in_stock": true
       },
       {
-        "id": "tester-100ml",
-        "type": "tester",
-        "label": "Духи 100 мл (тестер)",
+        "id": "full-100ml",
+        "type": "full",
+        "label": "Духи 100 мл",
         "volume_ml": 100,
         "price": 12800,
         "in_stock": true
@@ -226,6 +274,14 @@
     "image": "images/serotonin.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1770,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -234,19 +290,19 @@
         "in_stock": true
       },
       {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 7790,
+        "in_stock": true
+      },
+      {
         "id": "full-100ml",
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
         "price": 12560,
-        "in_stock": true
-      },
-      {
-        "id": "tester-100ml",
-        "type": "tester",
-        "label": "Духи 100 мл (тестер)",
-        "volume_ml": 100,
-        "price": 13870,
         "in_stock": true
       }
     ]
@@ -262,6 +318,14 @@
     "image": "images/testosterone.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2260,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
@@ -270,19 +334,19 @@
         "in_stock": true
       },
       {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 9900,
+        "in_stock": true
+      },
+      {
         "id": "full-100ml",
         "type": "full",
         "label": "Духи 100 мл",
         "volume_ml": 100,
         "price": 15960,
-        "in_stock": true
-      },
-      {
-        "id": "tester-100ml",
-        "type": "tester",
-        "label": "Духи 100 мл (тестер)",
-        "volume_ml": 100,
-        "price": 18530,
         "in_stock": true
       }
     ]
@@ -298,11 +362,27 @@
     "image": "images/escentric-molecules-escentric-02.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1920,
         "in_stock": true
       },
       {
@@ -326,11 +406,27 @@
     "image": "images/escentric-molecules-molecule-02.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 990,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1700,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 3710,
         "in_stock": true
       },
       {
@@ -354,11 +450,27 @@
     "image": "images/ex-nihilo-fleur-narcotique.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1520,
         "in_stock": true
       },
       {
@@ -382,11 +494,27 @@
     "image": "images/escentric-molecules-escentric-01.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 950,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1640,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 3560,
         "in_stock": true
       },
       {
@@ -410,11 +538,27 @@
     "image": "images/escentric-molecules-molecule-01.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1100,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1890,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 4100,
         "in_stock": true
       },
       {
@@ -438,11 +582,27 @@
     "image": "images/creed-aventus.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2170,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 3740,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 9780,
         "in_stock": true
       },
       {
@@ -466,11 +626,27 @@
     "image": "images/byredo-parfums-bal-d-afrique.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 590,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1010,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 2730,
         "in_stock": true
       },
       {
@@ -494,11 +670,27 @@
     "image": "images/attar-collection-musk-kashmir.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1350,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 2330,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 5060,
         "in_stock": true
       },
       {
@@ -522,11 +714,27 @@
     "image": "images/nasomatto-black-afgano.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1430,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 2470,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 6460,
         "in_stock": true
       },
       {
@@ -550,11 +758,27 @@
     "image": "images/tiziana-terenzi-kirke.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 900,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1560,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 3370,
         "in_stock": true
       },
       {
@@ -578,11 +802,27 @@
     "image": "images/marc-antoine-barrois-ganymede.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1410,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 2430,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 5280,
         "in_stock": true
       },
       {
@@ -606,11 +846,27 @@
     "image": "images/zarkoperfume-pink-molecule-09009.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 870,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1500,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 3260,
         "in_stock": true
       },
       {
@@ -634,11 +890,27 @@
     "image": "images/tom-ford-tobacco-vanille.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1850,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 3190,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 8350,
         "in_stock": true
       },
       {
@@ -662,11 +934,27 @@
     "image": "images/afnan-perfumes-supremacy-silver.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1700,
         "in_stock": true
       },
       {
@@ -690,11 +978,27 @@
     "image": "images/versace-man-eau-fraiche.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 590,
         "in_stock": true
       },
       {
@@ -718,11 +1022,27 @@
     "image": "images/tom-ford-lost-cherry.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2100,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 3620,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 9460,
         "in_stock": true
       },
       {
@@ -746,11 +1066,27 @@
     "image": "images/attar-collection-azora.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 970,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1680,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 3650,
         "in_stock": true
       },
       {
@@ -774,11 +1110,27 @@
     "image": "images/mancera-cedrat-boise.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1180,
         "in_stock": true
       },
       {
@@ -802,11 +1154,27 @@
     "image": "images/shaik-perfume-opulent-shaik-classic-77.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1700,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 2930,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 7630,
         "in_stock": true
       },
       {
@@ -830,11 +1198,27 @@
     "image": "images/kilian-straight-to-heaven-white-cristal.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 2040,
         "in_stock": true
       },
       {
@@ -858,11 +1242,27 @@
     "image": "images/montale-aoud-forest.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 2160,
         "in_stock": true
       },
       {
@@ -886,11 +1286,27 @@
     "image": "images/lalique-encre-noire-pour-homme.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1680,
         "in_stock": true
       },
       {
@@ -914,11 +1330,27 @@
     "image": "images/hermes-terre-d-hermes.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1180,
         "in_stock": true
       },
       {
@@ -942,11 +1374,27 @@
     "image": "images/essential-parfums-bois-imperial.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1510,
         "in_stock": true
       },
       {
@@ -970,11 +1418,27 @@
     "image": "images/montale-red-vetiver.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 2160,
         "in_stock": true
       },
       {
@@ -998,11 +1462,27 @@
     "image": "images/escentric-molecules-molecule-01-m-iris.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1930,
         "in_stock": true
       },
       {
@@ -1026,11 +1506,27 @@
     "image": "images/le-labo-santal-33.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1720,
         "in_stock": true
       },
       {
@@ -1054,11 +1550,27 @@
     "image": "images/creed-silver-mountain-water.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2570,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 4430,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 11550,
         "in_stock": true
       },
       {
@@ -1082,11 +1594,27 @@
     "image": "images/escentric-molecules-molecule-01-m-mandarin.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 870,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1500,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 3260,
         "in_stock": true
       },
       {
@@ -1110,11 +1638,27 @@
     "image": "images/montale-boise-fruite.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 2160,
         "in_stock": true
       },
       {
@@ -1138,11 +1682,27 @@
     "image": "images/attar-collection-hayati.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1080,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1860,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 4050,
         "in_stock": true
       },
       {
@@ -1166,11 +1726,27 @@
     "image": "images/kilian-liaisons-dangereuses-typical-me.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1870,
         "in_stock": true
       },
       {
@@ -1194,11 +1770,27 @@
     "image": "images/escentric-molecules-escentric-03.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 840,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1440,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 3120,
         "in_stock": true
       },
       {
@@ -1222,11 +1814,27 @@
     "image": "images/tiziana-terenzi-cassiopea.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 260,
         "in_stock": true
       },
       {
@@ -1250,11 +1858,27 @@
     "image": "images/clinique-happy-for-men.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 810,
         "in_stock": true
       },
       {
@@ -1278,11 +1902,27 @@
     "image": "images/shaik-perfume-chic-shaik-70.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 1910,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 3300,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 8610,
         "in_stock": true
       },
       {
@@ -1306,11 +1946,27 @@
     "image": "images/le-labo-another-13.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 2910,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 5010,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 16370,
         "in_stock": true
       },
       {
@@ -1334,11 +1990,27 @@
     "image": "images/kilian-black-phantom.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 500,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 790,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 1870,
         "in_stock": true
       },
       {
@@ -1362,11 +2034,27 @@
     "image": "images/zarkoperfume-molecule-23438.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 740,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 1280,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 3470,
         "in_stock": true
       },
       {
@@ -1390,11 +2078,27 @@
     "image": "images/dolce-gabbana-the-one-for-men-edt.jpg",
     "variants": [
       {
+        "id": "decant-5ml",
+        "type": "decant",
+        "label": "Отливант 5 мл",
+        "volume_ml": 5,
+        "price": 570,
+        "in_stock": true
+      },
+      {
         "id": "decant-10ml",
         "type": "decant",
         "label": "Отливант 10 мл",
         "volume_ml": 10,
         "price": 980,
+        "in_stock": true
+      },
+      {
+        "id": "full-50ml",
+        "type": "full",
+        "label": "Духи 50 мл",
+        "volume_ml": 50,
+        "price": 2670,
         "in_stock": true
       },
       {
