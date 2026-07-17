@@ -170,14 +170,14 @@ function cheapestVariant(product) {
   return product.variants.slice().sort((a, b) => a.price - b.price)[0];
 }
 
-function productCardHtml(product) {
+function productCardHtml(product, index) {
   const cheapest = cheapestVariant(product);
   if (!cheapest) return "";
 
   const badge = product.is_hit ? "🏆 Хит" : product.is_new ? "🆕 Новинка" : "";
 
   return `
-    <div class="product-card" data-product-id="${product.id}">
+    <div class="product-card" data-product-id="${product.id}" style="--card-index:${index % 12}">
       ${badge ? `<span class="product-badge">${badge}</span>` : ""}
       <img src="${product.image}" alt="${product.name}" loading="lazy" />
       <div class="product-info">
@@ -196,7 +196,7 @@ function productCardHtml(product) {
 function renderGrid() {
   const products = visibleProducts();
   grid.innerHTML = products.length
-    ? products.map(productCardHtml).join("")
+    ? products.map((p, i) => productCardHtml(p, i)).join("")
     : '<p class="cart-empty">Ничего не найдено</p>';
 }
 
