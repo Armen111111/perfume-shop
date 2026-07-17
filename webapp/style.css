@@ -1,22 +1,22 @@
 :root {
-  /* фирменная палитра: сам фон сайта — Zaffre, акценты Periwinkle/Citron. */
-  --bg: #0d21a5;
-  --bg-elevated: #0a1b87;
-  --graphite: #0a1878;
-  --line: rgba(255, 255, 255, 0.16);
-  --line-strong: rgba(255, 255, 255, 0.28);
-  --glass: rgba(255, 255, 255, 0.07);
-  --glass-strong: rgba(255, 255, 255, 0.12);
-  --text: #f8f9ff;
-  --muted: #c3caf0;
-  --silver: #dfe4fb;
-  --periwinkle: #b9c7f8;
-  --zaffre: #0d21a5;
-  --citron: #d1d067;
-  --accent: #d1d067;
-  --accent-light: #e0e08c;
-  --accent-grad: linear-gradient(135deg, #e0e08c, #d1d067);
-  --on-accent: #17180a;
+  /* фирменная палитра: Wine (фон) / Algae (CTA) / Wasabi (светлый акцент) — нишевая аптекарская эстетика. */
+  --bg: #4c0004;
+  --bg-elevated: #380003;
+  --graphite: #2a0203;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.24);
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(255, 255, 255, 0.1);
+  --text: #f7f3e8;
+  --muted: #cabb8a;
+  --silver: #e8dfc4;
+  --periwinkle: #dcd189;
+  --zaffre: #4c0004;
+  --citron: #afa231;
+  --accent: #afa231;
+  --accent-light: #c7ba4a;
+  --accent-grad: linear-gradient(135deg, #c7ba4a, #afa231);
+  --on-accent: #241800;
 }
 
 * {
@@ -153,7 +153,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 18px 16px;
-  background: rgba(10, 24, 120, 0.82);
+  background: rgba(56, 0, 3, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   position: sticky;
@@ -234,7 +234,7 @@ h3 {
   height: 260px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(185, 199, 248, 0.3), transparent 70%);
+  background: radial-gradient(circle, rgba(220, 209, 137, 0.3), transparent 70%);
   filter: blur(20px);
   animation: hero-breathe 6s ease-in-out infinite;
   pointer-events: none;
@@ -355,7 +355,7 @@ h3 {
   left: -30%;
   width: 160%;
   height: 60%;
-  background: linear-gradient(115deg, transparent 28%, rgba(185, 199, 248, 0.22) 44%, rgba(209, 208, 103, 0.28) 50%, rgba(185, 199, 248, 0.22) 56%, transparent 72%);
+  background: linear-gradient(115deg, transparent 28%, rgba(220, 209, 137, 0.22) 44%, rgba(175, 162, 49, 0.28) 50%, rgba(220, 209, 137, 0.22) 56%, transparent 72%);
   transform: translateX(-100%);
   animation: flare-sweep 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s 1;
   pointer-events: none;
@@ -552,9 +552,9 @@ h3 {
 }
 
 .mood-chip.active {
-  background: linear-gradient(135deg, var(--periwinkle), #8fa3ef);
+  background: linear-gradient(135deg, var(--periwinkle), #c4b96a);
   border-color: transparent;
-  color: #10143a;
+  color: #241800;
   font-weight: 700;
 }
 
@@ -935,7 +935,7 @@ h3 {
   position: absolute;
   top: 8px;
   left: 8px;
-  background: rgba(10, 24, 120, 0.9);
+  background: rgba(56, 0, 3, 0.9);
   border: 1px solid var(--line-strong);
   color: var(--citron);
   font-size: 10px;
@@ -1453,7 +1453,7 @@ h3 {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(10, 24, 120, 0.97);
+  background: rgba(56, 0, 3, 0.97);
   color: #fff;
   padding: 9px 18px;
   border-radius: 10px;
