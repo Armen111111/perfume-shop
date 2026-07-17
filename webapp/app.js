@@ -101,7 +101,7 @@ function setQty(productId, variantId, qty) {
   renderCartBadge();
   renderCart();
   if (!productOverlay.classList.contains("hidden") && productOverlay.dataset.productId === productId) {
-    renderProductDetail(productId);
+    updateDetailVariantControl(productId, variantId);
   }
 }
 
@@ -219,9 +219,20 @@ function railCardHtml(product) {
   `;
 }
 
+function onePerBrand(products) {
+  const seen = new Set();
+  const result = [];
+  for (const p of products) {
+    if (seen.has(p.brand)) continue;
+    seen.add(p.brand);
+    result.push(p);
+  }
+  return result;
+}
+
 function renderRails() {
   const newest = state.products.filter((p) => p.is_new).slice(0, 10);
-  const bestsellers = state.products.filter((p) => p.is_hit).slice(0, 10);
+  const bestsellers = onePerBrand(state.products.filter((p) => p.is_hit)).slice(0, 10);
 
   newRailEl.innerHTML = newest.length
     ? newest.map(railCardHtml).join("")
@@ -300,9 +311,19 @@ function variantRowHtml(product, variant) {
     <div class="detail-variant-row">
       <div class="detail-variant-label">${variant.label}</div>
       <div class="detail-variant-price">${formatPrice(variant.price)}</div>
-      ${variantControlHtml(product, variant)}
+      <div class="detail-variant-control" data-product="${product.id}" data-variant="${variant.id}">${variantControlHtml(product, variant)}</div>
     </div>
   `;
+}
+
+function updateDetailVariantControl(productId, variantId) {
+  const product = getProduct(productId);
+  const variant = getVariant(productId, variantId);
+  if (!product || !variant) return;
+  const el = productDetailBody.querySelector(
+    `.detail-variant-control[data-product="${productId}"][data-variant="${variantId}"]`
+  );
+  if (el) el.innerHTML = variantControlHtml(product, variant);
 }
 
 function renderProductDetail(productId) {
