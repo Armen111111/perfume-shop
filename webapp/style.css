@@ -1,22 +1,22 @@
 :root {
-  /* фирменная палитра: Periwinkle / Zaffre / Citron поверх кинематографичного тёмного фона. */
-  --bg: #07080b;
-  --bg-elevated: #0e1015;
-  --graphite: #15171d;
-  --line: rgba(255, 255, 255, 0.09);
-  --line-strong: rgba(255, 255, 255, 0.18);
-  --glass: rgba(255, 255, 255, 0.035);
-  --glass-strong: rgba(255, 255, 255, 0.07);
-  --text: #f3f4f6;
-  --muted: #8b8f99;
-  --silver: #c6c9d1;
+  /* фирменная палитра: сам фон сайта — Zaffre, акценты Periwinkle/Citron. */
+  --bg: #0d21a5;
+  --bg-elevated: #0a1b87;
+  --graphite: #0a1878;
+  --line: rgba(255, 255, 255, 0.16);
+  --line-strong: rgba(255, 255, 255, 0.28);
+  --glass: rgba(255, 255, 255, 0.07);
+  --glass-strong: rgba(255, 255, 255, 0.12);
+  --text: #f8f9ff;
+  --muted: #c3caf0;
+  --silver: #dfe4fb;
   --periwinkle: #b9c7f8;
   --zaffre: #0d21a5;
   --citron: #d1d067;
-  --accent: #0d21a5;
-  --accent-light: #b9c7f8;
-  --accent-grad: linear-gradient(135deg, #b9c7f8, #0d21a5);
-  --on-accent: #f3f4f6;
+  --accent: #d1d067;
+  --accent-light: #e0e08c;
+  --accent-grad: linear-gradient(135deg, #e0e08c, #d1d067);
+  --on-accent: #17180a;
 }
 
 * {
@@ -153,7 +153,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 18px 16px;
-  background: rgba(7, 8, 11, 0.82);
+  background: rgba(10, 24, 120, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   position: sticky;
@@ -552,9 +552,9 @@ h3 {
 }
 
 .mood-chip.active {
-  background: linear-gradient(135deg, var(--citron), #b8b74a);
+  background: linear-gradient(135deg, var(--periwinkle), #8fa3ef);
   border-color: transparent;
-  color: #17180a;
+  color: #10143a;
   font-weight: 700;
 }
 
@@ -935,7 +935,7 @@ h3 {
   position: absolute;
   top: 8px;
   left: 8px;
-  background: rgba(14, 16, 21, 0.9);
+  background: rgba(10, 24, 120, 0.9);
   border: 1px solid var(--line-strong);
   color: var(--citron);
   font-size: 10px;
@@ -1453,7 +1453,7 @@ h3 {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(14, 16, 21, 0.97);
+  background: rgba(10, 24, 120, 0.97);
   color: #fff;
   padding: 9px 18px;
   border-radius: 10px;
