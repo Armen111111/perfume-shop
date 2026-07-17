@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
@@ -28,16 +28,55 @@
     </button>
   </header>
 
-  <section class="hero">
+  <section class="hero" id="hero">
     <span class="hero-glow" aria-hidden="true"></span>
-    <h2 class="hero-title">Добро пожаловать в SILLAGÉ</h2>
+    <span class="hero-flare" aria-hidden="true"></span>
+    <div class="hero-parallax" data-parallax="0.12" aria-hidden="true">
+      <span class="hero-ring"></span>
+    </div>
+    <span class="hero-eyebrow">Дом ароматов</span>
+    <h2 class="hero-wordmark">SILLAGÉ</h2>
+    <div class="hero-bottle-frame">
+      <img id="hero-bottle-img" class="hero-bottle-img" alt="" />
+    </div>
     <p class="hero-subtitle">Нишевая парфюмерия для тех, кто верит, что аромат — это больше, чем запах.</p>
+  </section>
+
+  <section class="mood-picker fade-in" id="mood-picker">
+    <span class="section-eyebrow">Подбор аромата 💎</span>
+    <h3 class="section-title">Какое сегодня настроение?</h3>
+    <div class="mood-options" id="mood-options">
+      <button class="mood-chip" data-mood="work" type="button">Для работы</button>
+      <button class="mood-chip" data-mood="date" type="button">Для свидания</button>
+      <button class="mood-chip" data-mood="everyday" type="button">На каждый день</button>
+    </div>
+    <div class="mood-hint" id="mood-hint"></div>
+  </section>
+
+  <section class="rail-section fade-in" id="new-section">
+    <span class="section-eyebrow">Новинки 🔥</span>
+    <h3 class="section-title">Только что прибыли</h3>
+    <div class="rail" id="new-rail"></div>
+  </section>
+
+  <section class="rail-section fade-in" id="bestseller-section">
+    <span class="section-eyebrow">Бестселлеры ⭐</span>
+    <h3 class="section-title">Выбор ценителей</h3>
+    <div class="rail" id="bestseller-rail"></div>
+  </section>
+
+  <section class="promo-banner fade-in" id="promo-banner">
+    <span class="section-eyebrow">Акции 🎁</span>
+    <h3 class="section-title">Приватное предложение</h3>
+    <p class="promo-banner-text">Введите промокод при оформлении заказа — скидка применится к финальной сумме без лишнего шума.</p>
   </section>
 
   <div class="shop-layout">
     <nav class="brand-rail" id="brand-rail" aria-label="Парфюмерные дома"></nav>
 
     <div class="shop-main">
+      <span class="section-eyebrow">Каталог</span>
+      <h3 class="section-title">Вся коллекция</h3>
       <nav class="quick-filters" id="filters">
         <button class="filter-chip active" data-tab="all">Все</button>
         <button class="filter-chip" data-tab="hit">🏆 Хиты</button>
@@ -54,7 +93,8 @@
     </div>
   </div>
 
-  <section class="advantages">
+  <section class="advantages fade-in">
+    <span class="section-eyebrow">Философия</span>
     <h2>Почему выбирают нас</h2>
     <ul>
       <li>100% оригинальная продукция</li>
@@ -160,6 +200,6 @@
 
   <div id="toast" class="toast hidden"></div>
 
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>

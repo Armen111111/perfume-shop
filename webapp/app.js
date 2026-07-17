@@ -13,6 +13,7 @@ const state = {
   paymentsEnabled: false,
   promo: null, // { code, percent }
   search: "",
+  mood: null,
 };
 
 const grid = document.getElementById("product-grid");
@@ -38,6 +39,11 @@ const cartDiscountEl = document.getElementById("cart-discount");
 const productOverlay = document.getElementById("product-overlay");
 const productDetailBody = document.getElementById("product-detail-body");
 const closeProductBtn = document.getElementById("close-product");
+const heroBottleImg = document.getElementById("hero-bottle-img");
+const newRailEl = document.getElementById("new-rail");
+const bestsellerRailEl = document.getElementById("bestseller-rail");
+const moodOptionsEl = document.getElementById("mood-options");
+const moodHintEl = document.getElementById("mood-hint");
 
 function formatPrice(value) {
   return `${value.toLocaleString("ru-RU")} ₽`;
@@ -125,6 +131,7 @@ function visibleProducts() {
   if (state.tab === "hit") list = list.filter((p) => p.is_hit);
   else if (state.tab === "new") list = list.filter((p) => p.is_new);
   else if (state.tab !== "all") list = list.filter((p) => p.gender === state.tab);
+  if (state.mood) list = list.filter((p) => moodTagsFor(p).has(state.mood));
   return list.filter(matchesBrand).filter(matchesSearch);
 }
 
@@ -169,6 +176,107 @@ function variantControlHtml(product, variant) {
 function cheapestVariant(product) {
   return product.variants.slice().sort((a, b) => a.price - b.price)[0];
 }
+
+/* ---------- ноты аромата (эвристика на основе описания) ---------- */
+
+function notesFromDescription(product) {
+  if (!product.description) return [];
+  return product.description
+    .split(/[,;.]/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 1 && s.length < 40)
+    .slice(0, 6);
+}
+
+const MOOD_KEYWORDS = {
+  work: ["чист", "свеж", "цитрус", "минимал", "офис", "делов", "прозрачн", "легк", "зелен"],
+  date: ["чувствен", "сладк", "ваниль", "мускус", "страст", "романт", "вечер", "соблазн", "цветоч", "тепл"],
+  everyday: ["универс", "повседневн", "древесн", "нейтральн"],
+};
+
+function moodTagsFor(product) {
+  const text = `${product.description || ""} ${product.name}`.toLowerCase();
+  const tags = new Set();
+  Object.entries(MOOD_KEYWORDS).forEach(([mood, keywords]) => {
+    if (keywords.some((kw) => text.includes(kw))) tags.add(mood);
+  });
+  if (tags.size === 0) tags.add("everyday");
+  return tags;
+}
+
+/* ---------- hero: флакон дня ---------- */
+
+function renderHeroBottle() {
+  if (!heroBottleImg || !state.products.length) return;
+  const featured =
+    state.products.find((p) => p.is_hit) || state.products[Math.floor(Math.random() * state.products.length)];
+  if (!featured) return;
+  heroBottleImg.alt = featured.name;
+  heroBottleImg.addEventListener("load", () => heroBottleImg.classList.add("loaded"), { once: true });
+  heroBottleImg.src = featured.image;
+}
+
+/* ---------- подборки: Новинки / Бестселлеры ---------- */
+
+function railCardHtml(product) {
+  const cheapest = cheapestVariant(product);
+  if (!cheapest) return "";
+  return `
+    <div class="rail-card" data-product-id="${product.id}">
+      <img src="${product.image}" alt="${product.name}" loading="lazy" />
+      <div class="rail-card-info">
+        <span class="rail-card-brand">${product.brand}</span>
+        <div class="rail-card-name">${product.name}</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderRails() {
+  const newest = state.products.filter((p) => p.is_new).slice(0, 10);
+  const bestsellers = state.products.filter((p) => p.is_hit).slice(0, 10);
+
+  newRailEl.innerHTML = newest.length
+    ? newest.map(railCardHtml).join("")
+    : '<p class="rail-empty">Скоро появятся новые ароматы</p>';
+
+  bestsellerRailEl.innerHTML = bestsellers.length
+    ? bestsellers.map(railCardHtml).join("")
+    : '<p class="rail-empty">Собираем подборку хитов</p>';
+
+  [newRailEl, bestsellerRailEl].forEach((rail) => {
+    rail.querySelectorAll(".rail-card").forEach((card) => {
+      card.addEventListener("click", () => openProductDetail(card.dataset.productId));
+    });
+  });
+}
+
+/* ---------- подбор аромата по настроению ---------- */
+
+const MOOD_LABELS = {
+  work: "Для работы подойдут чистые, прозрачные и минималистичные ароматы.",
+  date: "Для свидания — чувственные, тёплые и обволакивающие композиции.",
+  everyday: "На каждый день — универсальные ароматы, которые уместны везде.",
+};
+
+moodOptionsEl.addEventListener("click", (event) => {
+  const chip = event.target.closest(".mood-chip");
+  if (!chip) return;
+  const mood = chip.dataset.mood;
+  state.mood = state.mood === mood ? null : mood;
+  moodOptionsEl.querySelectorAll(".mood-chip").forEach((c) => c.classList.toggle("active", c.dataset.mood === state.mood));
+
+  if (state.mood) {
+    moodHintEl.textContent = MOOD_LABELS[state.mood];
+    state.tab = "all";
+    renderFilters();
+    renderGridAnimated();
+    document.getElementById("product-grid").scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    moodHintEl.textContent = "";
+    renderGridAnimated();
+  }
+});
 
 function productCardHtml(product, index) {
   const cheapest = cheapestVariant(product);
@@ -215,12 +323,18 @@ function renderProductDetail(productId) {
   if (!product) return;
 
   const rows = product.variants.map((v) => variantRowHtml(product, v)).join("");
+  const notes = notesFromDescription(product);
+  const notesHtml = notes.length
+    ? `<ul class="detail-notes">${notes
+        .map((note, i) => `<li style="--note-index:${i}">${note}</li>`)
+        .join("")}</ul>`
+    : "";
 
   productDetailBody.innerHTML = `
     <img src="${product.image}" alt="${product.name}" class="product-detail-image" />
     <span class="product-brand">${product.brand}</span>
     <h3 class="product-detail-name">${product.name}</h3>
-    ${product.description ? `<p class="product-detail-description">${product.description}</p>` : ""}
+    ${notesHtml}
     <div class="detail-variants">${rows}</div>
   `;
 }
@@ -496,6 +610,50 @@ async function loadProducts() {
   state.products = await response.json();
   renderBrandRail();
   renderGrid();
+  renderRails();
+  renderHeroBottle();
 }
 
-Promise.all([loadConfig(), loadProducts()]);
+function initScrollReveal() {
+  const targets = document.querySelectorAll(".fade-in");
+  if (!("IntersectionObserver" in window)) {
+    targets.forEach((el) => el.classList.add("in-view"));
+    return;
+  }
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  targets.forEach((el) => observer.observe(el));
+}
+
+function initParallax() {
+  const layer = document.querySelector(".hero-parallax");
+  if (!layer || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const factor = Number(layer.dataset.parallax) || 0.12;
+  let ticking = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        layer.style.transform = `translateY(${window.scrollY * factor}px)`;
+        ticking = false;
+      });
+    },
+    { passive: true }
+  );
+}
+
+Promise.all([loadConfig(), loadProducts()]).then(() => {
+  initScrollReveal();
+  initParallax();
+});

@@ -1,20 +1,20 @@
 :root {
-  /* фирменная палитра: кобальтовый синий + жжёная охра.
-     Бренд намеренно не подстраивается под тему Telegram — это фирменный вид бутика. */
-  --bg: #1e4b7a;
-  --bg-elevated: #16395e;
-  --graphite: #14324f;
-  --line: rgba(255, 255, 255, 0.14);
-  --line-strong: rgba(255, 255, 255, 0.24);
-  --glass: rgba(255, 255, 255, 0.06);
-  --glass-strong: rgba(255, 255, 255, 0.1);
-  --text: #f6f2ec;
-  --muted: #b7c9de;
-  --silver: #dfe8f2;
-  --accent: #b45309;
-  --accent-light: #e08a34;
-  --accent-grad: linear-gradient(135deg, #e08a34, #b45309);
-  --on-accent: #fff8f0;
+  /* кинематографичная люксовая палитра: чёрный, графит, белый, глубокий синий.
+     Никакого золота — сдержанный дом моды, не масс-маркет. */
+  --bg: #07080b;
+  --bg-elevated: #0e1015;
+  --graphite: #15171d;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --glass: rgba(255, 255, 255, 0.035);
+  --glass-strong: rgba(255, 255, 255, 0.07);
+  --text: #f3f4f6;
+  --muted: #8b8f99;
+  --silver: #c6c9d1;
+  --accent: #1c2e57;
+  --accent-light: #3a5aa6;
+  --accent-grad: linear-gradient(135deg, #3a5aa6, #16234a);
+  --on-accent: #f3f4f6;
 }
 
 * {
@@ -90,38 +90,38 @@ h3 {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.25;
+  filter: blur(90px);
+  opacity: 0.18;
   will-change: transform;
   animation: drift ease-in-out infinite;
 }
 
 .blob-gold {
-  width: 280px;
-  height: 280px;
-  top: -60px;
-  left: -60px;
-  background: radial-gradient(circle, #e08a34, transparent 70%);
-  animation-duration: 24s;
+  width: 320px;
+  height: 320px;
+  top: -80px;
+  left: -80px;
+  background: radial-gradient(circle, #3a5aa6, transparent 70%);
+  animation-duration: 26s;
 }
 
 .blob-amber {
-  width: 340px;
-  height: 340px;
+  width: 380px;
+  height: 380px;
   top: 26%;
-  right: -110px;
-  background: radial-gradient(circle, #2f6fa8, transparent 70%);
-  animation-duration: 30s;
+  right: -130px;
+  background: radial-gradient(circle, #2a2f3d, transparent 70%);
+  animation-duration: 32s;
   animation-delay: -8s;
 }
 
 .blob-wine {
-  width: 300px;
-  height: 300px;
-  bottom: -90px;
-  left: 12%;
-  background: radial-gradient(circle, #b45309, transparent 70%);
-  animation-duration: 34s;
+  width: 340px;
+  height: 340px;
+  bottom: -100px;
+  left: 8%;
+  background: radial-gradient(circle, #16234a, transparent 70%);
+  animation-duration: 36s;
   animation-delay: -15s;
 }
 
@@ -151,7 +151,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 18px 16px;
-  background: rgba(20, 50, 79, 0.85);
+  background: rgba(7, 8, 11, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   position: sticky;
@@ -232,7 +232,7 @@ h3 {
   height: 260px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(224, 138, 52, 0.28), transparent 70%);
+  background: radial-gradient(circle, rgba(58, 90, 166, 0.3), transparent 70%);
   filter: blur(20px);
   animation: hero-breathe 6s ease-in-out infinite;
   pointer-events: none;
@@ -284,12 +284,128 @@ h3 {
   margin: 0 auto;
 }
 
+.hero-eyebrow {
+  position: relative;
+  display: block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0;
+  animation: eyebrow-in 0.8s ease-out 0.1s both;
+}
+
+.hero-wordmark {
+  position: relative;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 7px;
+  margin: 10px 0 18px;
+  color: var(--text);
+  opacity: 0;
+  filter: blur(10px);
+  transform: scale(1.08);
+  animation: wordmark-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+@keyframes eyebrow-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wordmark-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.hero-flare {
+  position: absolute;
+  z-index: -1;
+  top: -20%;
+  left: -30%;
+  width: 160%;
+  height: 60%;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.14) 50%, rgba(255, 255, 255, 0.08) 55%, transparent 70%);
+  transform: translateX(-100%);
+  animation: flare-sweep 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s 1;
+  pointer-events: none;
+}
+
+@keyframes flare-sweep {
+  to {
+    transform: translateX(60%);
+  }
+}
+
+.hero-parallax {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-ring {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  transform: translateX(-50%);
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.hero-bottle-frame {
+  position: relative;
+  width: min(150px, 44%);
+  margin: 4px auto 6px;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--graphite);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.hero-bottle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  filter: blur(18px);
+  transform: scale(1.15);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-bottle-img.loaded {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
 .hero-subtitle {
   position: relative;
   margin-top: 12px;
   font-size: 13px;
   color: var(--muted);
   line-height: 1.5;
+  opacity: 0;
+  animation: eyebrow-in 0.8s ease-out 0.5s both;
 }
 
 .hero-divider {
@@ -297,6 +413,200 @@ h3 {
   width: 40px;
   height: 1px;
   background: var(--line-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow,
+  .hero-wordmark,
+  .hero-subtitle,
+  .hero-bottle-img {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  .hero-flare {
+    display: none;
+  }
+}
+
+/* ---------- скролл-анимации появления секций ---------- */
+
+.fade-in {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.in-view {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- заголовки секций ---------- */
+
+.section-eyebrow {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin-bottom: 12px;
+}
+
+/* ---------- подбор аромата ---------- */
+
+.mood-picker {
+  margin: 0 16px 20px;
+  padding: 20px 18px;
+  border-radius: 18px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.mood-options {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.mood-chip {
+  border: 1px solid var(--line-strong);
+  background: var(--glass-strong);
+  color: var(--text);
+  padding: 9px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+}
+
+.mood-chip:active {
+  transform: scale(0.96);
+}
+
+.mood-chip.active {
+  background: var(--accent-grad);
+  border-color: transparent;
+  color: var(--on-accent);
+  font-weight: 600;
+}
+
+.mood-hint {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  min-height: 14px;
+}
+
+/* ---------- горизонтальные подборки (Новинки / Бестселлеры) ---------- */
+
+.rail-section {
+  margin: 0 0 22px;
+  padding-left: 16px;
+}
+
+.rail {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 2px 16px 6px 0;
+  scroll-snap-type: x proximity;
+}
+
+.rail-card {
+  flex: 0 0 128px;
+  scroll-snap-align: start;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.rail-card:active {
+  transform: scale(0.96);
+}
+
+.rail-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--graphite);
+  transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rail-card:hover img {
+  transform: scale(1.08);
+}
+
+.rail-card-info {
+  padding: 8px 10px 10px;
+}
+
+.rail-card-brand {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.rail-card-name {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 2px;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rail-empty {
+  font-size: 12px;
+  color: var(--muted);
+  padding: 8px 0;
+}
+
+/* ---------- акции ---------- */
+
+.promo-banner {
+  margin: 0 16px 22px;
+  padding: 20px 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--graphite), var(--bg-elevated));
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.promo-banner-text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
 }
 
 .trust-list {
@@ -508,17 +818,19 @@ h3 {
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   padding: 0 0 16px;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
 }
 
 .product-grid.grid-leaving {
   opacity: 0;
-  transform: translateY(-10px);
+  filter: blur(4px);
+  transform: scale(0.97);
 }
 
 .product-grid.grid-entering {
   opacity: 0;
-  transform: translateY(10px);
+  filter: blur(4px);
+  transform: scale(1.02);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -535,20 +847,22 @@ h3 {
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   transition: transform 0.15s ease, opacity 0.3s ease;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   cursor: pointer;
   opacity: 0;
-  transform: translateY(16px) scale(0.98);
-  animation: card-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--card-index, 0) * 45ms);
+  filter: blur(8px);
+  transform: translateY(16px) scale(0.97);
+  animation: card-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--card-index, 0) * 55ms);
 }
 
 @keyframes card-in {
   to {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0) scale(1);
   }
 }
@@ -561,6 +875,7 @@ h3 {
   .product-card {
     animation: none;
     opacity: 1;
+    filter: none;
     transform: none;
   }
 }
@@ -576,7 +891,7 @@ h3 {
   position: absolute;
   top: 8px;
   left: 8px;
-  background: rgba(20, 50, 79, 0.9);
+  background: rgba(14, 16, 21, 0.9);
   border: 1px solid var(--line-strong);
   color: var(--silver);
   font-size: 10px;
@@ -658,12 +973,41 @@ h3 {
   object-fit: cover;
   border-radius: 14px;
   background: var(--graphite);
+  opacity: 0;
+  filter: blur(16px);
+  transform: scale(1.12);
+  animation: detail-frame-1 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes detail-frame-1 {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
 }
 
 .product-detail-name {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   margin: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: detail-frame-2 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+.product-detail-body .product-brand {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: detail-frame-2 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+@keyframes detail-frame-2 {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .product-detail-description {
@@ -673,11 +1017,56 @@ h3 {
   margin: 0;
 }
 
+.detail-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-notes li {
+  font-size: 11px;
+  color: var(--silver);
+  border: 1px solid var(--line-strong);
+  background: var(--glass);
+  padding: 5px 11px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: detail-frame-2 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(0.45s + var(--note-index, 0) * 0.12s);
+}
+
 .detail-variants {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-top: 6px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: detail-frame-3 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+
+@keyframes detail-frame-3 {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-detail-image,
+  .product-detail-name,
+  .product-detail-body .product-brand,
+  .detail-notes li,
+  .detail-variants {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
 }
 
 .detail-variant-row {
@@ -1020,7 +1409,7 @@ h3 {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(20, 50, 79, 0.97);
+  background: rgba(14, 16, 21, 0.97);
   color: #fff;
   padding: 9px 18px;
   border-radius: 10px;
